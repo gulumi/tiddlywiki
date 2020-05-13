@@ -141,7 +141,11 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/Comments/EnableFilter</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions</li>
+
+<li>$:/config/RelinkOnRename</li>
 
 <li>$:/config/Search/MinLength</li>
 
@@ -199,6 +203,12 @@ Error message and password prompt
 
 <li>$:/state/peek-stylesheets/open/--994748944$:/tesseract/LeftSidebar</li>
 
+<li>$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/comments</li>
+
+<li>$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/comments--1108022443</li>
+
+<li>$:/state/showeditpreview</li>
+
 <li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--1963855381</li>
@@ -213,7 +223,15 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/TOC-SML-1367091134</li>
+
+<li>$:/state/toc/TOC-TODO-1367091134</li>
+
+<li>$:/state/toc/TOC/SML-Pairs-1367091134</li>
+
 <li>$:/status/RequireReloadDueToPluginChange</li>
+
+<li>$:/status/UserName</li>
 
 <li>$:/StoryList</li>
 
@@ -439,13 +457,45 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
-<li>Closure</li>
+<li>Closure: 实例演进</li>
+
+<li>Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;''''</li>
+
+<li>Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;'''</li>
+
+<li>Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;''</li>
+
+<li>Comment by '(anonymous)' on 'operator vs operand'</li>
+
+<li>Comment by '(anonymous)' on 'operator vs operand' 1</li>
+
+<li>Comment by '(anonymous)' on 'pair'</li>
+
+<li>Comment by '(anonymous)' on 'Typing: * vs -&gt;'</li>
+
+<li>Comment by 'vv' on 'Closure: 实例演进'</li>
+
+<li>Draft of 'TODO'</li>
+
+<li>if condition: equal</li>
+
+<li>let in end</li>
+
+<li>operator vs operand</li>
+
+<li>Pairs</li>
 
 <li>References</li>
 
 <li>SML</li>
 
 <li>TOC</li>
+
+<li>TODO</li>
+
+<li>Typing: * vs -&gt;</li>
+
+<li>Typing: 一致性</li>
 
 </ul>
 </p>
@@ -461,8 +511,14 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20200513142703453" modified="20200513142708256" title="$:/config/Comments/EnableFilter">
+<pre>[all[current]!is[system]]</pre>
+</div>
 <div created="20200509010032211" modified="20200509010032211" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions">
 <pre>show</pre>
+</div>
+<div created="20200513143208503" creator="vv" modified="20200513143208503" modifier="vv" title="$:/config/RelinkOnRename">
+<pre>yes</pre>
 </div>
 <div created="20200509010643715" modified="20200509010647841" tags="" title="$:/config/Search/MinLength">
 <pre>1</pre>
@@ -11444,6 +11500,15 @@ Error message and password prompt
 <div created="20200509013403222" modified="20200509020102996" title="$:/state/peek-stylesheets/open/--994748944$:/tesseract/LeftSidebar">
 <pre>no</pre>
 </div>
+<div created="20200513142647783" modified="20200513142647783" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/comments">
+<pre>yes</pre>
+</div>
+<div created="20200513142650426" modified="20200513142715102" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/comments--1108022443">
+<pre>readme</pre>
+</div>
+<div created="20200513130917850" modified="20200513133317528" title="$:/state/showeditpreview">
+<pre>no</pre>
+</div>
 <div created="20200509010728454" modified="20200509015416620" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
@@ -11456,8 +11521,8 @@ Error message and password prompt
 <div created="20200509013332113" modified="20200509020059045" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/Stylesheets</pre>
 </div>
-<div created="20200509010153039" modified="20200509020054151" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div created="20200509010153039" modified="20200513142640569" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20200509010216453" modified="20200509010216453" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -11465,14 +11530,26 @@ Error message and password prompt
 <div created="20200509010028110" modified="20200512135656403" title="$:/state/tab/sidebar--595412856">
 <pre>TOC</pre>
 </div>
+<div created="20200513130807825" modified="20200513130807825" title="$:/state/toc/TOC-SML-1367091134">
+<pre>open</pre>
+</div>
+<div created="20200513133625842" modified="20200513133625842" title="$:/state/toc/TOC-TODO-1367091134">
+<pre>open</pre>
+</div>
+<div created="20200513133230054" modified="20200513133231430" title="$:/state/toc/TOC/SML-Pairs-1367091134">
+<pre>close</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20200512135638293" list="Closure SML TOC" modified="20200512135706189" title="$:/StoryList">
+<div created="20200513142747099" modified="20200513142750779" title="$:/status/UserName">
+<pre>vv</pre>
+</div>
+<div created="20200513130808694" creator="vv" list="[[operator vs operand]] [[let in end]] [[Typing: 一致性]] [[if condition: equal]] [[Typing: * vs -&gt;]] TODO Pairs SML [[Closure: 实例演进]] GettingStarted" modified="20200513142853723" modifier="vv" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20200509010722128" modified="20200509015421890" title="$:/temp/advancedsearch">
-<pre>伤寒论</pre>
+<div created="20200509010722128" creator="vv" modified="20200513142901594" modifier="vv" title="$:/temp/advancedsearch">
+<pre>all comm</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -11532,7 +11609,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200509011732495" modified="20200512135620400" title="$:/temp/NewTagName">
+<div created="20200509011732495" creator="vv" modified="20200513143508442" modifier="vv" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="Paco Rivière" core-version="&gt;=5.0.0" created="20200509010244268" dependents="" description="Catalan (Spain)" icon="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22810%22%20height%3D%22540%22%3E%0A%3Crect%20width%3D%22810%22%20height%3D%22540%22%20fill%3D%22%23FCDD09%22%2F%3E%0A%3Cpath%20stroke%3D%22%23DA121A%22%20stroke-width%3D%2260%22%20d%3D%22M0%2C90H810m0%2C120H0m0%2C120H810m0%2C120H0%22%2F%3E%0A%3C%2Fsvg%3E" modified="20200509010244268" name="ca-ES" original-plugin-type="language" original-tags="" original-title="$:/languages/ca-ES" original-type="application/json" requires-reload="no" server-url="https://tiddlywiki.com/library/v5.1.22/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/languages/ca-ES" type="text/vnd.tiddlywiki" version="5.1.22">
@@ -12485,8 +12562,8 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200509010234125" modified="20200509015709589" title="$:/temp/RemoteAssetSearch/$:/config/OfficialPluginLibrary">
 <pre>drag</pre>
 </div>
-<div created="20200509010652084" modified="20200509010722128" title="$:/temp/search">
-<pre></pre>
+<div created="20200509010652084" creator="vv" modified="20200513143150184" modifier="vv" title="$:/temp/search">
+<pre>closure</pre>
 </div>
 <div created="20200509012639684" modified="20200509012639684" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.22/index.html" url="https://tiddlywiki.com/library/v5.1.22/index.html">
 <pre>loaded</pre>
@@ -12631,8 +12708,175 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200509013613265" modified="20200509013613265" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20200512135558586" modified="20200512135634240" tags="SML" title="Closure" type="text/x-markdown">
+<div created="20200512135558586" creator="vv" modified="20200513143509757" modifier="vv" tags="SML Closure" title="Closure: 实例演进" type="text/x-markdown">
+<pre>华盛顿大学 PL 课程第一周的作业 2：我的第一个版本如下，但示例代码是用了内部函数，即 closure，因为刚开始不会写，就还是用了外部函数，然后再改进成 closure。
+
+(* 2. Write a function number_in_month that takes a list of dates and a month (i.e., an int) and returns
+how many dates in the list are in the given month. *)
+
+```
+fun count_dates (d: (int * int * int) list, (month:int), (count: int)) = 
+    if d = [] then count  
+    else if getMonth(hd d) = month 
+    then count_dates((tl d), month, count + 1)
+    else count_dates((tl d), month, count)
+		
+fun number_in_month2 (d: (int * int * int) list, (month: int))  = 
+    let val count = 0
+    in 
+        count_dates(d, month, count)
+    end
+```</pre>
+</div>
+<div created="20200513142506943" creator="vv" edit-mode="no" list="[[Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;''']]" modified="20200513143025160" modifier="vv" role="comment" saved-text="晕，是我写错了，参数 12 前面忘记加逗号了。
+
+```
+- number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)],12)
+= ;
+val it = 2 : int
+```" title="Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;''''">
+<pre>晕，是我写错了，参数 12 前面忘记加逗号了。
+
+```
+- number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)],12)
+= ;
+val it = 2 : int
+```</pre>
+</div>
+<div created="20200513142327238" creator="vv" edit-mode="no" list="[[Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;'']]" modified="20200513143021971" modifier="vv" role="comment" saved-text="好像上面的理解还是不对，换成运行`number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)] 12)`也不行
+
+```
+- number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)] 12);
+stdIn:1.18-1.59 Error: operator is not a function [tycon mismatch]
+  operator: ('Z[INT] * 'Y[INT] * 'X[INT]) list
+  in expression:
+    ((2019,12,2) :: (2018,12,2) :: (&lt;exp&gt;,&lt;exp&gt;,&lt;exp&gt;) :: nil) 12
+```" title="Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;'''">
+<pre>好像上面的理解还是不对，换成运行`number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)] 12)`也不行
+
+```
+- number_in_month([(2019,12,2),(2018,12,2),(2019,11,22)] 12);
+stdIn:1.18-1.59 Error: operator is not a function [tycon mismatch]
+  operator: ('Z[INT] * 'Y[INT] * 'X[INT]) list
+  in expression:
+    ((2019,12,2) :: (2018,12,2) :: (&lt;exp&gt;,&lt;exp&gt;,&lt;exp&gt;) :: nil) 12
+```</pre>
+</div>
+<div created="20200513142118648" creator="vv" edit-mode="no" list="[[Comment by '(anonymous)' on 'Typing: * vs -&gt;']]" modified="20200513143018596" modifier="vv" role="comment" saved-text="```
+fun number_in_month (d: (int * int * int) list, (month: int))  = 
+    let val count = 0
+    in 
+        count_dates(d, month, count)
+    end
+```
+
+运行`number_in_month [(2019,12,2),(2018,12,2),(2019,11,22)] 12`时，报错：
+
+```
+Error: operator and operand do not agree [tycon mismatch]
+  operator domain: (int * int * int) list * int
+  operand:         ('Z[INT] * 'Y[INT] * 'X[INT]) list
+  in expression:
+    number_in_month ((2019,12,2) :: (2018,12,2) :: (&lt;exp&gt;,&lt;exp&gt;,&lt;exp&gt;) :: nil)
+```
+
+这里可以看出，参数 12 并没有被视作参数。。。这里可能是被看作是 currying 了，不过这个 currying我还没搞懂，待续。
+" title="Comment by '(anonymous)' on 'Comment by '(anonymous)' on 'Typing: * vs -&gt;''">
+<pre>```
+fun number_in_month (d: (int * int * int) list, (month: int))  = 
+    let val count = 0
+    in 
+        count_dates(d, month, count)
+    end
+```
+
+运行`number_in_month [(2019,12,2),(2018,12,2),(2019,11,22)] 12`时，报错：
+
+```
+Error: operator and operand do not agree [tycon mismatch]
+  operator domain: (int * int * int) list * int
+  operand:         ('Z[INT] * 'Y[INT] * 'X[INT]) list
+  in expression:
+    number_in_month ((2019,12,2) :: (2018,12,2) :: (&lt;exp&gt;,&lt;exp&gt;,&lt;exp&gt;) :: nil)
+```
+
+这里可以看出，参数 12 并没有被视作参数。。。这里可能是被看作是 currying 了，不过这个 currying我还没搞懂，待续。
+</pre>
+</div>
+<div created="20200513140553124" creator="vv" edit-mode="no" list="[[operator vs operand]]" modified="20200513143007454" modifier="vv" role="comment" saved-text="问：operator 和 operand 分别是指哪些？
+
+初答：
+
+- operator：函数定义时的类型
+- operand:   函数调用时的类型" title="Comment by '(anonymous)' on 'operator vs operand'">
+<pre>问：operator 和 operand 分别是指哪些？
+
+初答：
+
+- operator：函数定义时的类型
+- operand:   函数调用时的类型</pre>
+</div>
+<div created="20200513140715481" creator="vv" edit-mode="no" list="[[operator vs operand]]" modified="20200513143010014" modifier="vv" role="comment" saved-text="上面的错误是这样的：
+
+- getMonth 在定义的时候，接受 type 是 int * int * int 的 pairs
+- 而在调用时，传入的却是 (int * int * int) list，列表" title="Comment by '(anonymous)' on 'operator vs operand' 1">
+<pre>上面的错误是这样的：
+
+- getMonth 在定义的时候，接受 type 是 int * int * int 的 pairs
+- 而在调用时，传入的却是 (int * int * int) list，列表</pre>
+</div>
+<div created="20200513131006286" edit-mode="no" list="pair" modified="20200513131142107" role="comment" title="Comment by '(anonymous)' on 'pair'">
+<pre>如果这里不指定 type 的话，如写成：
+
+```
+fun is_older d1 d2 =
+```
+
+sml 也无法智能的判断出 typel 来的：
+
+```
+Error: unresolved flex record
+   (can't tell what fields there are besides #1)
+```</pre>
+</div>
+<div created="20200513133526452" creator="vv" edit-mode="no" list="[[Typing: * vs -&gt;]]" modified="20200513143016336" modifier="vv" role="comment" saved-text="这二者什么区别呢？" title="Comment by '(anonymous)' on 'Typing: * vs -&gt;'">
+<pre>这二者什么区别呢？</pre>
+</div>
+<div created="20200513143350875" creator="vv" edit-mode="no" list="[[Closure: 实例演进]]" modified="20200513143827013" modifier="vv" role="comment" title="Comment by 'vv' on 'Closure: 实例演进'">
+<pre>在函数 `number_in_month2` 和 `count_dates` 中，可以看到， 二者用了相同的参数 month.
+
+想到闭包的特性是，可以打包的外部环境的变量，即 `count_dates` 作为内部函数，可以访问 `number_in_month2` 中的变量，
+
+所以, 第一步可以把 month 参数从 `count_data`中提出来</pre>
+</div>
+<div modified="20200513133616337" title="Draft of 'TODO'">
 <pre></pre>
+</div>
+<div created="20200513134646383" modified="20200513134733041" tags="SML" title="if condition: equal" type="text/x-markdown">
+<pre>用 = 而非 ==</pre>
+</div>
+<div created="20200513135407903" modified="20200513135419157" tags="SML" title="let in end" type="text/x-markdown">
+<pre></pre>
+</div>
+<div created="20200513140341067" modified="20200513140627416" tags="SML Typing TODO" title="operator vs operand" type="text/x-markdown">
+<pre>```
+fun getMonth(d: int * int * int) = #1 d
+fun count_dates (d: (int * int * int) list, (month:int), (count: int)) = 
+    if d = [] then count  
+    else if getMonth(d) = month 
+myhw1.sml:18.10-20.43 Error: operator and operand do not agree [tycon mismatch]
+  operator domain: int * int * int
+  operand:         (int * int * int) list
+  in expression:
+    getMonth d
+```</pre>
+</div>
+<div created="20200513130823954" modified="20200513133228029" tags="SML Typing Pairs" title="Pairs" type="text/x-markdown">
+<pre>```sml
+fun is_older (d1:int*int*int) (d2:int*int*int) =
+    if (#1 d1) &gt; (#1 d2) then true else false
+```
+</pre>
 </div>
 <div created="20200509010802040" modified="20200509012554129" tags="TOC" title="References" type="text/x-markdown">
 <pre>- [使用 TiddlyWiki 的用途和心得？ - 知乎](https://www.zhihu.com/question/31214433)</pre>
@@ -12644,6 +12888,27 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable &quot;TOC&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20200513133610555" modified="20200513133640090" tags="TOC" title="TODO">
+<pre>&lt;&lt;list-links &quot;[tag[TODO]sort[title]]&quot;&gt;&gt;
+</pre>
+</div>
+<div created="20200513133235094" modified="20200513133554425" tags="SML Typing TODO" title="Typing: * vs -&gt;" type="text/x-markdown">
+<pre>
+&gt; val is_older = fn : int * int * int -&gt; int * int * int -&gt; bool
+
+```
+fun is_older (d1:int*int*int) (d2:int*int*int) =
+```
+
+&gt; val is_older = fn : (int * int * int) * (int * int * int) -&gt; bool
+
+```
+fun is_older (d1:int*int*int, d2:int*int*int) =
+```</pre>
+</div>
+<div created="20200513135246271" modified="20200513135345922" tags="Typing" title="Typing: 一致性" type="text/x-markdown">
+<pre>- 在函数中，不同的分支中要注意返回相同的类型</pre>
 </div>
 
 
