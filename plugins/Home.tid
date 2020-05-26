@@ -1,0 +1,23 @@
+created: 20190316192203374
+creator: Mohammad
+modified: 20190322205457307
+modifier: Mohammad
+tags: start
+title: Home
+
+[img class="float-right" width=64px [$:/favicon.ico]]
+
+! Yazd
+[[Yazd]] is a KISS collection of Tiddlywiki macros. These are macros their script is less than 20 lines and simple in concept, modular and easy to use.
+
+
+<<< [[KISS principle|https://en.wikipedia.org/wiki/KISS_principle]]
+The KISS principle states that most systems work best if they are kept simple rather than made complicated; therefore, simplicity should be a key goal in design, and unnecessary complexity should be avoided. In this project KISS stands for ''Keep It Short and Simple''.
+<<<
+
+{{yazd/status}}
+
+More information
+
+* [[How Yazd works?|Yazd Mechanism]]
+* [[How create and document macros|Coding Practice]]
