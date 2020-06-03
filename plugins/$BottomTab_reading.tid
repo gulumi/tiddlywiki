@@ -1,0 +1,657 @@
+caption: Reading
+created: 20141112105951335
+creator: Alberto Molina Pérez
+dependents: $:/plugins/amp/BT/common
+description: BottomTabs for academic readings
+modified: 20141231104501194
+modifier: Alberto Molina Pérez
+plugin-type: plugin
+tags: BottomTabs
+title: $:/plugins/amp/BT/reading
+type: application/json
+version: 0.1.37
+
+{
+    "tiddlers": {
+        "$:/plugins/amp/BT/tabs/biography": {
+            "created": "20140614182026228",
+            "creator": "Alberto Molina Pérez",
+            "text": "!Biography\n\n<$list filter=\"[all[current]listed[source]tag[$:/type/biography]]\" emptyMessage=\"none\">\n\n<h2><$link to={{!!title}}><$view field=\"title\"/></$link></h2>\n\n<h3><$transclude field=\"description\"/></h3>\n\n<$list filter=\"[all[current]list[!!about]] [all[current]list[!!parent]] [all[current]list[!!source]] -[title<storyTiddler>]\" template=\"$:/core/ui/TagTemplate\"/><$list filter=\"[all[current]tags[]!is[system]]\" template=\"$:/core/ui/TagTemplate\"/>\n\n<$transclude tiddler={{!!title}} mode=\"block\"/>\n\n</$list>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Biography",
+            "list-before": "$:/plugins/amp/BT/tabs/comments",
+            "modified": "20141229091730471",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/tab $:/tabs/person",
+            "title": "$:/plugins/amp/BT/tabs/biography",
+            "type": "",
+            "icon": "$:/plugins/amp/BT/images/person"
+        },
+        "$:/plugins/amp/BT/tabs/notes": {
+            "created": "20141122233839041",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<inputSlider \"$:/plugins/amp/BT/forms/input/notes\" \"$:/plugins/amp/BT/buttons/input/notes\" btnClass:\"tab\">>\n\n<<tabContents>>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Notes",
+            "filter": "[all[current]listed[source]] [all[current]listed[about]] +[tag[$:/type/note]]",
+            "icon": "$:/plugins/amp/BT/images/edit",
+            "modified": "20141229200808777",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/tab $:/action/is/default",
+            "template": "$:/plugins/amp/BT/templates/tabs/notes",
+            "title": "$:/plugins/amp/BT/tabs/notes",
+            "filter_related": "[all[current]tagging[]] [all[current]listed[source]listed[about]] [all[current]listed[source]listed[source]] [all[current]listed[source]listed[parent]] [all[current]listed[source]tagging[]] [all[current]listed[about]listed[about]] [all[current]listed[about]listed[parent]] [all[current]listed[about]tagging[]] [all[current]listed[parent]listed[about]] [all[current]listed[parent]listed[parent]] [all[current]listed[parent]tagging[]] -[all[current]listed[source]] -[all[current]listed[about]] +[tag[$:/type/note]!title{!!title}!is[system]!has[draft.of]sort[title]]"
+        },
+        "$:/plugins/amp/BT/images/idea": {
+            "text": "<<BottomTabs-image \"fa-lightbulb-o\" \"idea\" \"Idea\">>",
+            "created": "20141123005333276",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141125094631060",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/idea"
+        },
+        "$:/plugins/amp/BT/tabs/ideas": {
+            "created": "20141122233839041",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<inputSlider \"$:/plugins/amp/BT/forms/input/ideas\" \"$:/plugins/amp/BT/buttons/input/ideas\" btnClass:\"tab\">>\n\n<<tabContents>>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Ideas",
+            "filter": "[all[current]listed[source]] [all[current]listed[about]] +[tag[$:/type/idea]]",
+            "modified": "20141229191525521",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/tab $:/action/is/default",
+            "title": "$:/plugins/amp/BT/tabs/ideas",
+            "icon": "$:/plugins/amp/BT/images/idea",
+            "template": "$:/plugins/amp/BT/templates/tabs/notes",
+            "filter_related": "[all[current]tagging[]] [all[current]listed[source]listed[about]] [all[current]listed[source]listed[source]] [all[current]listed[source]listed[parent]] [all[current]listed[source]tagging[]] [all[current]listed[about]listed[about]] [all[current]listed[about]listed[parent]] [all[current]listed[about]tagging[]] [all[current]listed[parent]listed[about]] [all[current]listed[parent]listed[parent]] [all[current]listed[parent]tagging[]] +[tag[$:/type/idea]!title{!!title}!is[system]!has[draft.of]sort[title]]"
+        },
+        "$:/plugins/amp/BT/images/quote": {
+            "text": "<<BottomTabs-image \"fa-quote-left\" \"quote\" \"Quote\">>",
+            "created": "20141123011539928",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141125094718235",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/quote"
+        },
+        "$:/plugins/amp/BT/tabs/quotes": {
+            "created": "20141123011444936",
+            "creator": "Alberto Molina Pérez",
+            "text": "<$list filter=\"[all[current]tag[$:/type/publication]] [all[current]tag[$:/type/chapter]]\">\n<<inputSlider \"$:/plugins/amp/BT/forms/input/quotes\" \"$:/plugins/amp/BT/buttons/input/quotes\" btnClass:\"tab\">>\n</$list>\n\n<<tabContents>>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Quotes",
+            "filter": "[all[current]listed[authors]] [all[current]listed[authors]tag[$:/type/publication]listed[source]] [all[current]listed[source]] +[tag[$:/type/quote]!has[draft.of]nsort[page_alpha]]",
+            "modified": "20141229190356717",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/tab BottomTabs $:/tabs/publication $:/tabs/author $:/tabs/chapter $:/tabs/concept $:/tabs/theory",
+            "title": "$:/plugins/amp/BT/tabs/quotes",
+            "filter_related": "[all[current]listed[]] [all[current]listed[about]] [all[current]tagging[]] [all[current]listed[source]listed[about]] [all[current]listed[source]listed[parent]] [all[current]listed[source]tagging[]] [all[current]listed[about]listed[about]] [all[current]listed[about]listed[parent]] [all[current]listed[about]tagging[]] [all[current]listed[parent]listed[about]] [all[current]listed[parent]listed[parent]] [all[current]listed[parent]tagging[]] +[tag[$:/type/quote]!has[draft.of]nsort[page_alpha]]",
+            "icon": "$:/plugins/amp/BT/images/quote",
+            "template": "$:/plugins/amp/BT/templates/tabs/quotes"
+        },
+        "$:/plugins/amp/BT/css/quotes": {
+            "created": "20140421120131878",
+            "text": ".cit {\ndisplay: block;\nfont-family: Georgia, serif;\nfont-size: 14px;\nfont-style: normal;\ntext-align: justify;\nmargin: 2.25em 1em 2.25em 1em;\npadding: 0.25em 60px;\nline-height: 20px;\nposition: relative;\ncolor: <<color foreground>>;\n-moz-border-radius: 10px;\nborder-radius: 10px;\nbackground-color: #FFFFEE ;\n}\n\n.cit:before {\ndisplay: block;\ncontent: \"\\201C\";\nfont-size: 80px;\nposition: absolute;\nleft: 20px;\ntop: 25px;\ncolor: #7a7a7a;\n}\n\n.cit:after {\ndisplay: block;\ncontent: \"\\201D\";\nfont-size: 80px;\nposition: absolute;\nright: 20px;\nbottom: 0px;\ncolor: #7a7a7a;\n}\n\n.cit cite {\ncolor: #999999;\nfont-size: 14px;\ndisplay: block;\nmargin-top: 15px;\nmargin-bottom: 1em;\n}\n\n.cit cite:before {\ncontent: \"\\2014 \\2009\";\n}",
+            "creator": "Alberto Molina",
+            "modified": "20141123114322126",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet BottomTabs",
+            "title": "$:/plugins/amp/BT/css/quotes",
+            "type": "text/css"
+        },
+        "cit": {
+            "created": "20140422115346864",
+            "creator": "Alberto Molina",
+            "text": "<div class=\"cit\">\n\n{{!!text}}\n\n<cite>\n<$link>{{!!title}}</$link>\n</cite>\n</div>",
+            "modified": "20141229181512022",
+            "modifier": "Alberto Molina Pérez",
+            "title": "cit",
+            "tags": "$:/type/template"
+        },
+        "$:/plugins/amp/BT/images/book": {
+            "created": "20141124112530336",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<BottomTabs-image \"fa-book\" \"book\" \"Book\">>",
+            "modified": "20141124112611466",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/book",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/images/article": {
+            "text": "<<BottomTabs-image \"fa-file-text-o\" \"article\" \"Article\">>",
+            "created": "20141124112618595",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141125094811681",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/article"
+        },
+        "$:/plugins/amp/BT/doc/reading": {
+            "created": "20141124112828067",
+            "creator": "Alberto Molina Pérez",
+            "text": "!!Reading\n\n!!!Templates\n\n* [[cit]]: for quotes",
+            "modified": "20141124123539236",
+            "modifier": "Alberto Molina Pérez",
+            "source": "$:/plugins/amp/BT/reading",
+            "tags": "$:/type/doc $:/action/hide/default",
+            "title": "$:/plugins/amp/BT/doc/reading"
+        },
+        "$:/plugins/amp/BT/tabs/publications": {
+            "created": "20140614181842614",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define title(type)\n<$transclude tiddler={{!!icon}}/>\n<$link to={{!!title}}>\n<$reveal type=\"nomatch\" state=\"!!authors\" text=\"[[$(storyTiddler)$]]\">\n{{!!title}}</$reveal>\n<$reveal type=\"match\" state=\"!!authors\" text=\"[[$(storyTiddler)$]]\">\n<$reveal type=\"match\" state=\"!!publication_type\" text=\"article\">“</$reveal>\n<$view field=\"publication_title\"/>\n<$reveal type=\"match\" state=\"!!publication_type\" text=\"article\">”</$reveal>\n<$reveal type=\"nomatch\" state=\"!!publication_date\" text=\"\">, <$view field=\"publication_date\"/></$reveal>\n</$reveal>\n</$link>\n\\end\n\n<<inputSlider \"$:/plugins/amp/BT/forms/input/publications\" \"$:/plugins/amp/BT/buttons/input/publications\" btnClass:\"tab\">>\n\n!Publications\n\n<$list filter={{$:/plugins/amp/BT/tabs/publications!!filter}} emptyMessage=\"none\">\n\n!!<<title>>\n\n<$list filter=\"[all[current]list[!!about]!is[system]]\" template=\"$:/core/ui/TagTemplate\"/><$list filter=\"[all[current]tags[]!is[system]]\" template=\"$:/core/ui/TagTemplate\"/>\n\n!!!{{!!description}}\n\n{{!!text}}\n\n<br>\n\n</$list>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Publications",
+            "filter": "[all[current]listed[authors]] [all[current]listed[about]] [all[current]listed[source]] +[tag[$:/type/publication]!is[system]!has[draft.of]nsort[publication_date]]",
+            "modified": "20141231112110718",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tabs/author $:/tabs/theory $:/tabs/concept",
+            "title": "$:/plugins/amp/BT/tabs/publications",
+            "icon": "$:/plugins/amp/BT/images/article"
+        },
+        "$:/plugins/amp/BT/tabs/chapters": {
+            "created": "20141124185151399",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<inputSlider \"$:/plugins/amp/BT/forms/input/chapters\" \"$:/plugins/amp/BT/buttons/input/chapters\" btnClass:\"tab\">>\n\n<<tabContents>>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Chapters",
+            "filter": "[all[current]listed[source]tag[$:/type/chapter]nsort[order]]",
+            "modified": "20141229120741817",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/tab $:/tabs/publication BottomTabs",
+            "title": "$:/plugins/amp/BT/tabs/chapters",
+            "icon": "$:/plugins/amp/BT/images/chapter",
+            "template": "$:/plugins/amp/BT/templates/tabs/chapters"
+        },
+        "$:/plugins/amp/BT/images/chapter": {
+            "created": "20141124185333156",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<BottomTabs-image \"fa-bookmark-o\" \"chapter\" \"Chapter\">>",
+            "modified": "20141124185821455",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/chapter",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/documentation/reading": {
+            "created": "20141124112828067",
+            "creator": "Alberto Molina Pérez",
+            "text": "!![[Reading|$:/plugins/amp/BT/documentation/reading]]\n\n!!!Templates\n\n* [[cit]]: for quotes",
+            "modified": "20141125100547058",
+            "modifier": "Alberto Molina Pérez",
+            "source": "$:/plugins/amp/BT/reading",
+            "tags": "$:/type/doc $:/action/hide/default",
+            "title": "$:/plugins/amp/BT/documentation/reading"
+        },
+        "$:/plugins/amp/BT/forms/input/notes": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define noteTable(source,pagesChapter,title,description,about,tags,text)\n!New $(label)$\n\n$source$\n$pagesChapter$\n$title$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n\\define note()\n<$set name=\"tempTiddler\" value=\"$:/temp/note\" >\n<$set name=\"Label\" value=\"Note\" >\n<$set name=\"label\" value=\"note\" >\n<$set name=\"pagesChapter\" filter=\"[all[current]tag[$:/type/publication]]\" value=<<inputPagesChapter>> emptyValue=<<inputNone>> >\n\n<$reveal state=\"$(currentTab)$\" type=\"nomatch\" text=\"\">\n\n<$macrocall $name=\"noteTable\" \n    source=<<inputSource>>\n    pagesChapter=<<pagesChapter>>\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n<$reveal state=\"$(currentTab)$\" type=\"match\" text=\"\">\n\n<$macrocall $name=\"noteTable\" \n    source=\"\"\n    pagesChapter=\"\"\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n</$set>\n</$set>\n</$set>\n</$set>\n\\end\n\n\n\n\n\n\n\n\n\n\n<<note>>",
+            "modified": "20141215132612291",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/notes"
+        },
+        "$:/plugins/amp/BT/buttons/input/notes": {
+            "text": "<<newNoteButton>>",
+            "created": "20141125101553189",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231101833525",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/notes"
+        },
+        "$:/plugins/amp/BT/forms/input/ideas": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define ideaTable(source,pagesChapter,title,description,about,tags,text)\n\n$source$\n$pagesChapter$\n$title$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n\\define idea()\n<$set name=\"tempTiddler\" value=\"$:/temp/idea\" >\n<$set name=\"Label\" value=\"Idea\" >\n<$set name=\"label\" value=\"idea\" >\n\n<$reveal state=\"$(currentTab)$\" type=\"nomatch\" text=\"\">\n\n<$macrocall $name=\"ideaTable\" \n    source=<<inputSource>>\n    pagesChapter=<<inputPagesChapter>>\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n<$reveal state=\"$(currentTab)$\" type=\"match\" text=\"\">\n\n<$macrocall $name=\"ideaTable\" \n    source=\"\"\n    pagesChapter=\"\"\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n</$set>\n</$set>\n</$set>\n\\end\n<<idea>>",
+            "modified": "20141214105021641",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/ideas"
+        },
+        "$:/plugins/amp/BT/buttons/input/ideas": {
+            "text": "<<newNoteButton \"idea\">>\n",
+            "created": "20141125101553189",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231101937727",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/ideas"
+        },
+        "$:/plugins/amp/BT/forms/input/quotes": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define quote(source,pagesChapter,title,description,about,tags,text)\n!New $(label)$\n\n$source$\n$title$\n$pagesChapter$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n<$set name=\"tempTiddler\" value=\"$:/temp/quote\" >\n<$set name=\"Label\" value=\"Quote\" >\n<$set name=\"label\" value=\"quote\" >\n\n<$macrocall $name=\"quote\" \n    source=<<inputSource>>\n    pagesChapter=<<inputPagesChapter>>\n    title=<<inputTitle2>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$set>\n</$set>\n</$set>",
+            "modified": "20141126002026974",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/quotes"
+        },
+        "$:/plugins/amp/BT/forms/input/chapters": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define chapter(source,chapterPages,title,description,about,tags,text)\n!New $(label)$\n\n$source$\n$chapterPages$\n$title$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n<$set name=\"tempTiddler\" value=\"$:/temp/chapter\" >\n<$set name=\"Label\" value=\"Chapter\" >\n<$set name=\"label\" value=\"chapter\" >\n\n<$macrocall $name=\"chapter\" \n    source=<<inputSource>>\n    chapterPages=<<inputChapterPages>>\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$set>\n</$set>\n</$set>\n\n",
+            "modified": "20141126002130263",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/chapters"
+        },
+        "$:/plugins/amp/BT/macros/pages": {
+            "text": "\\define pages()\n<$set name=\"page_alpha\" value={{$:/temp/quote!!page_alpha}}>\n<$set name=\"page_omega\" value={{$:/temp/quote!!page_omega}}>\n\n<$set name=\"p\" filter=\"[[$:/temp/quote]field:page_omega[]]\" \n    value=<<page_alpha>>\n    emptyValue=<<appendPages>>\n    >\n\n<<p>>\n\n</$set>\n</$set>\n</$set>\n\\end",
+            "created": "20141126082734590",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141126083837593",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/macros/pages"
+        },
+        "$:/plugins/amp/BT/macros/pubTitle": {
+            "created": "20141231105649097",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define articleTitleOne()\n$(author1_surname)$ ($(year)$): “$(titre)$”\n\\end\n\n\\define articleTitleTwo()\n$(author1_surname)$ & $(author2_surname)$ ($(year)$): “$(titre)$”\n\\end\n\n\\define articleTitleThree()\n$(author1_surname)$, $(author2_surname)$ & $(author3_surname)$ ($(year)$): “$(titre)$”\n\\end\n\n\\define articleTitleFour()\n$(author1_surname)$ et al. ($(year)$): “$(titre)$”\n\\end\n\n\\define bookTitleOne()\n$(author1_surname)$ ($(year)$): $(titre)$\n\\end\n\n\\define bookTitleTwo()\n$(author1_surname)$ & $(author2_surname)$ ($(year)$): $(titre)$\n\\end\n\n\\define bookTitleThree()\n$(author1_surname)$, $(author2_surname)$ & $(author3_surname)$ ($(year)$): $(titre)$\n\\end\n\n\\define bookTitleFour()\n$(author1_surname)$ et al. ($(year)$): $(titre)$\n\\end",
+            "title": "$:/plugins/amp/BT/macros/pubTitle",
+            "tags": "BottomTabs $:/tags/Macro",
+            "modified": "20141231110633323",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/buttons/input/quotes": {
+            "text": "\\define inputQuote(tempTiddler,authors,year,pages,source)\n<$button>\n    <$action-sendmessage $message=\"tm-new-tiddler\" $param=\"$tempTiddler$\"\n        title=\"$authors$ $year$: $pages$\"\n        authors={{!!authors}}\n        source=\"[[$source$]]\"\n        tags=\"$:/type/quote\"\n        icon={{$:/type/quote!!icon}}\n        color={{$:/type/quote!!color}}\n        />\n    <$action-deletefield $tiddler=\"$tempTiddler$\" tags text about description chapter page_alpha page_omega/>\n    <$action-deletefield $tiddler=\"$:/temp/title\" text/>\n    add\n</$button>\n\\end\n\n\n<$set name=\"tempTiddler\" value=\"$:/temp/quote\">\n<$set name=\"page_alpha\" value={{$:/temp/quote!!page_alpha}}>\n<$set name=\"page_omega\" value={{$:/temp/quote!!page_omega}}>\n\n\n<$list filter=\"[<currentTiddler>tag[$:/type/publication]] [<currentTiddler>tag[$:/type/chapter]]\">\n\n<$reveal state=\"$:/temp/quote!!page_alpha\" type=\"nomatch\" text=\"\">\n\n<$set name=\"year\" filter=\"[all[current]has[publication_date]!publication_date[]]\" value={{!!publication_date}} emptyValue=\"(n.d.)\">\n\n<$set name=\"authors\" filter=\"[all[current]has[authors_title]!authors_title[]]\" value={{!!authors_title}} emptyValue={{!!authors}}>\n\n<$set name=\"pages\" filter=\"[[$:/temp/quote]page_omega[]]\"\n    value={{$:/temp/quote!!page_alpha}}\n    emptyValue=<<appendPages>>\n    >\n\n<$macrocall $name=\"inputQuote\"\n    tempTiddler=\"$:/temp/quote\"\n    authors=<<authors>>\n    year=<<year>>\n    pages=<<pages>>\n    source={{!!title}}\n    />\n\n</$set>\n\n</$set>\n\n</$set>\n\n</$reveal>\n\n</$list>\n\n<$list filter=\"[<currentTiddler>tag[$:/type/author]] [<currentTiddler>tag[$:/type/person]]\">\n\n</$list>\n\n</$set>\n</$set>\n</$set>\n\n",
+            "created": "20141125101553189",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231101530681",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/quotes"
+        },
+        "$:/plugins/amp/BT/forms/input/publisher": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputPublisher()\n|!Publisher      |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"publication_publisher\" tag=\"input\" placeholder=\"\" class=\"tc-edit-texteditor\" size=\"18\"/>| !Vol.|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"publication_volume\" tag=\"input\" placeholder=\"\" class=\"tc-edit-texteditor\" size=\"1\"/>| !Edition|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"publication_edition\" tag=\"input\" placeholder=\"\" class=\"tc-edit-texteditor\" size=\"1\"/>| !Year|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"publication_date\" tag=\"input\" placeholder=\"\" class=\"tc-edit-texteditor\" size=\"4\"/>|\n\\end\n<<inputPublisher>>",
+            "modified": "20141127120406981",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/publisher"
+        },
+        "$:/plugins/amp/BT/forms/input/subtitle": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputSubtitle()\n|!Subtitle |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"publication_subtitle\" tag=\"input\" placeholder=\"\" default=\"\" class=\"tc-edit-texteditor\" size=\"60\"/>|<|<|<|<|<|<|\n\\end\n<<inputSubtitle>>",
+            "modified": "20141217110912909",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/subtitle"
+        },
+        "$:/plugins/amp/BT/forms/input/publications": {
+            "text": "\\define book()\n<$button set=\"$:/state/input/pub\" setTo=\"book\" class=\"tc-btn-grey\">\n    / book\n</$button>\n\\end\n\\define article()\n<$button set=\"$:/state/input/pub\" setTo=\"article\" class=\"tc-btn-grey\">\n    / article\n</$button>\n\\end\n\n<$reveal state=\"$:/state/input/pub\" type=\"match\" text=\"book\" default=\"book\">\n\n!New book <<article>>\n{{||$:/plugins/amp/BT/forms/input/publications/book}}\n\n</$reveal>\n<$reveal state=\"$:/state/input/pub\" type=\"match\" text=\"article\" default=\"book\">\n\n!New article <<book>>\n{{||$:/plugins/amp/BT/forms/input/publications/article}}\n\n</$reveal>\n\n",
+            "created": "20141126221922107",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141129110831530",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/publications"
+        },
+        "$:/plugins/amp/BT/forms/input/publications/article": {
+            "created": "20141126222028079",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define article(authors,title,journal,volumeIssue,description,about,tags,text)\n\n$authors$\n$title$\n$journal$\n$volumeIssue$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n<$set name=\"tempTiddler\" value=\"$:/temp/publication\" >\n<$set name=\"Label\" value=\"Article\" >\n<$set name=\"label\" value=\"article\" >\n\n<$macrocall $name=\"article\"  \n    authors=<<inputAuthors>>\n    title=<<inputSingle \"Title\" \"$:/temp/publication\" \"publication_title\">>\n    journal=<<inputJournal>>\n    volumeIssue=<<inputVolumeIssue>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$set>\n</$set>\n</$set>\n\n",
+            "modified": "20141208115605912",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/publications/article",
+            "caption": "Article"
+        },
+        "$:/plugins/amp/BT/forms/input/publications/book": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define book(authors,title,subtitle,publisher,description,about,tags,text)\n\n$authors$\n$title$\n$subtitle$\n$publisher$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n<$set name=\"tempTiddler\" value=\"$:/temp/publication\" >\n<$set name=\"Label\" value=\"Book\" >\n<$set name=\"label\" value=\"book\" >\n\n<$macrocall $name=\"book\" \n    authors=<<inputAuthors>>\n    title=<<inputSingle \"Title\" \"$:/temp/publication\" \"publication_title\">>\n    subtitle=<<inputSubtitle>>\n    publisher=<<inputPublisher>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$set>\n</$set>\n</$set>\n\n",
+            "caption": "Book",
+            "modified": "20141215001539790",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/publications/book"
+        },
+        "$:/plugins/amp/BT/css/button/grey": {
+            "created": "20141127102404932",
+            "creator": "Alberto Molina Pérez",
+            "text": ".tc-btn-grey {\n\tfont-size: 1em;\n\tcolor: #c0c0c0;\n\tfont-weight: 200;\n\tpadding: 0;\n\tmargin: 0;\n\tbackground: none;\n\tborder: none;\n}",
+            "title": "$:/plugins/amp/BT/css/button/grey",
+            "tags": "$:/tags/Stylesheet",
+            "modified": "20141127103042414",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/forms/input/journal": {
+            "text": "\\define inputJournal(label:\"Journal\",field:\"publication_journal\",placeholder:\"Name\",class:\"tc-edit-texteditor\",size:\"60\")\n|!$label$ |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"$field$\" tag=\"input\" placeholder=\"$placeholder$\" class=\"$class$\" size=\"$size$\"/>|<|<|<|<|<|<|\n\\end\n<<inputJournal>>",
+            "created": "20141127114037157",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141127114539813",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/journal"
+        },
+        "$:/plugins/amp/BT/forms/input/volumeIssue": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputVolumeIssue(label:\" \",tempTiddler:\"$:/temp/publication\",field1:\"publication_volume\",field2:\"publication_issue\",field3:\"publication_date\",class:\"tc-edit-texteditor\")\n|~|<$edit-text tiddler=\"$tempTiddler$\" field=\"$field1$\" tag=\"input\" placeholder=\"Volume\" class=\"$class$\" size=\"2\"/>|<$edit-text tiddler=\"$tempTiddler$\" field=\"$field2$\" tag=\"input\" placeholder=\"Issue\" class=\"$class$\" size=\"1\"/>| <$edit-text tiddler=\"$tempTiddler$\" field=\"$field3$\" tag=\"input\" placeholder=\"Date YYYY\" class=\"$class$\" size=\"4\"/>| !pages|<$edit-text tiddler=\"$tempTiddler$\" field=\"page_alpha\" tag=\"input\" placeholder=\"from\" class=\"tc-edit-texteditor\" size=\"1\"/>|<$edit-text tiddler=\"$tempTiddler$\" field=\"page_omega\" tag=\"input\" placeholder=\"to\" class=\"tc-edit-texteditor\" size=\"1\"/>|<|\n\\end\n<<inputVolumeIssue>>",
+            "modified": "20141208115449966",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/volumeIssue"
+        },
+        "$:/plugins/amp/BT/buttons/input/publications": {
+            "text": "<$reveal state=\"$:/state/input/pub\" type=\"match\" text=\"book\" default=\"book\">\n\n{{||$:/plugins/amp/BT/buttons/input/publications/book}}\n\n</$reveal>\n<$reveal state=\"$:/state/input/pub\" type=\"match\" text=\"article\" default=\"book\">\n\n{{||$:/plugins/amp/BT/buttons/input/publications/article}}\n\n</$reveal>\n",
+            "created": "20141127121307980",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231101952359",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/publications"
+        },
+        "$:/plugins/amp/BT/buttons/input/publications/book": {
+            "created": "20141129091700968",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define authorsSelect(tempTiddler:\"$:/temp/publication\")\n<$set name=\"author1_surname\" value={{$(author1)$!!person_surname}}>\n<$set name=\"author2_surname\" filter=\"[[$(author2)$]is[tiddler]has[person_surname]]\" value={{$(author2)$!!person_surname}} emptyValue={{$:/temp/publication!!author2}}>\n<$set name=\"author3_surname\" filter=\"[[$(author3)$]is[tiddler]has[person_surname]]\" value={{$(author3)$!!person_surname}} emptyValue={{$:/temp/publication!!author3}}>\n<$set name=\"author4_surname\" filter=\"[[$(author4)$]is[tiddler]has[person_surname]]\" value={{$(author4)$!!person_surname}} emptyValue={{$:/temp/publication!!author4}}>\n\n<$reveal state=\"$tempTiddler$!!author4\" type=\"nomatch\" text=\"\">\n    <$macrocall $name=\"pubButton\" type=\"book\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Four\" fields=\"tags text about description publication_date publication_edition publication_publisher publication_subtitle publication_title publication_volume page_alpha page_omega\"/>\n</$reveal>\n\n<$reveal state=\"$tempTiddler$!!author4\" type=\"match\" text=\"\">\n\n    <$reveal state=\"$tempTiddler$!!author3\" type=\"nomatch\" text=\"\">\n        <$macrocall $name=\"pubButton\" type=\"book\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Three\" fields=\"tags text about description publication_date publication_edition publication_publisher publication_subtitle publication_title publication_volume page_alpha page_omega\"/>\n    </$reveal>\n\n    <$reveal state=\"$tempTiddler$!!author3\" type=\"match\" text=\"\">\n\n        <$reveal state=\"$tempTiddler$!!author2\" type=\"nomatch\" text=\"\">\n            <$macrocall $name=\"pubButton\" type=\"book\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Two\" fields=\"tags text about description publication_date publication_edition publication_publisher publication_subtitle publication_title publication_volume page_alpha page_omega\"/>\n        </$reveal>\n\n        <$reveal state=\"$tempTiddler$!!author2\" type=\"match\" text=\"\">\n            <$macrocall $name=\"pubButton\" type=\"book\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"One\" fields=\"tags text about description publication_date publication_edition publication_publisher publication_subtitle publication_title publication_volume page_alpha page_omega\"/>\n        </$reveal>\n\n    </$reveal>\n\n</$reveal>\n\n</$set>\n</$set>\n</$set>\n</$set>\n\\end\n\n<$reveal state=\"$:/temp/publication!!publication_title\" type=\"nomatch\" text=\"\">\n\n<$set name=\"author1\" filter=\"[all[current]tag[$:/type/author]]\" value={{!!title}} emptyValue={{$:/temp/publication!!author1}}>\n<$set name=\"author2\" value={{$:/temp/publication!!author2}}>\n<$set name=\"author3\" value={{$:/temp/publication!!author3}}>\n<$set name=\"author4\" value={{$:/temp/publication!!author4}}>\n<$set name=\"year\" filter=\"[[$:/temp/publication]has[publication_date]!publication_date[]]\" value={{$:/temp/publication!!publication_date}} emptyValue=\"n.d.\">\n<$set name=\"titre\" value={{$:/temp/publication!!publication_title}}>\n\n<<authorsSelect>>\n\n</$set>\n</$set>\n</$set>\n</$set>\n</$set>\n</$set>\n\n</$reveal>\n",
+            "modified": "20141231111806072",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/publications/book"
+        },
+        "$:/plugins/amp/BT/buttons/input/publications/article": {
+            "created": "20141208114409928",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define authorsSelect(tempTiddler:\"$:/temp/publication\")\n<$set name=\"author1_surname\" value={{$(author1)$!!person_surname}}>\n<$set name=\"author2_surname\" filter=\"[[$(author2)$]is[tiddler]has[person_surname]]\" value={{$(author2)$!!person_surname}} emptyValue={{$:/temp/publication!!author2}}>\n<$set name=\"author3_surname\" filter=\"[[$(author3)$]is[tiddler]has[person_surname]]\" value={{$(author3)$!!person_surname}} emptyValue={{$:/temp/publication!!author3}}>\n<$set name=\"author4_surname\" filter=\"[[$(author4)$]is[tiddler]has[person_surname]]\" value={{$(author4)$!!person_surname}} emptyValue={{$:/temp/publication!!author4}}>\n\n<$reveal state=\"$tempTiddler$!!author4\" type=\"nomatch\" text=\"\">\n    <$macrocall $name=\"pubButton\" type=\"article\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Four\" fields=\"tags text about description publication_date publication_journal publication_title publication_volume publication_issue page_alpha page_omega\"/>\n</$reveal>\n\n<$reveal state=\"$tempTiddler$!!author4\" type=\"match\" text=\"\">\n\n    <$reveal state=\"$tempTiddler$!!author3\" type=\"nomatch\" text=\"\">\n        <$macrocall $name=\"pubButton\" type=\"article\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Three\" fields=\"tags text about description publication_date publication_journal publication_title publication_volume publication_issue page_alpha page_omega\"/>\n    </$reveal>\n\n    <$reveal state=\"$tempTiddler$!!author3\" type=\"match\" text=\"\">\n\n        <$reveal state=\"$tempTiddler$!!author2\" type=\"nomatch\" text=\"\">\n            <$macrocall $name=\"pubButton\" type=\"article\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"Two\" fields=\"tags text about description publication_date publication_journal publication_title publication_volume publication_issue page_alpha page_omega\"/>\n        </$reveal>\n\n        <$reveal state=\"$tempTiddler$!!author2\" type=\"match\" text=\"\">\n            <$macrocall $name=\"pubButton\" type=\"article\" tempTiddler=\"$tempTiddler$\" author1={{$tempTiddler$!!tags}} number=\"One\" fields=\"tags text about description publication_date publication_journal publication_title publication_volume publication_issue page_alpha page_omega\"/>\n        </$reveal>\n\n    </$reveal>\n\n</$reveal>\n\n</$set>\n</$set>\n</$set>\n</$set>\n\\end\n\n<$reveal state=\"$:/temp/publication!!publication_title\" type=\"nomatch\" text=\"\">\n\n<$set name=\"author1\" filter=\"[all[current]tag[$:/type/author]]\" value={{!!title}} emptyValue={{$:/temp/publication!!author1}}>\n<$set name=\"author2\" value={{$:/temp/publication!!author2}}>\n<$set name=\"author3\" value={{$:/temp/publication!!author3}}>\n<$set name=\"author4\" value={{$:/temp/publication!!author4}}>\n<$set name=\"year\" filter=\"[[$:/temp/publication]has[publication_date]!publication_date[]]\" value={{$:/temp/publication!!publication_date}} emptyValue=\"n.d.\">\n<$set name=\"titre\" value={{$:/temp/publication!!publication_title}}>\n\n<<authorsSelect>>\n\n</$set>\n</$set>\n</$set>\n</$set>\n</$set>\n</$set>\n\n</$reveal>\n",
+            "modified": "20141231111554209",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/publications/article"
+        },
+        "$:/plugins/amp/BT/forms/input/single": {
+            "created": "20141127104143847",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputSingle(label:\"Title\", tempTiddler:\"$:/temp/title\", field:\"text\", placeholder, size:\"60\", class:\"tc-edit-texteditor\")\n|!$label$ |<$edit-text tiddler=\"$tempTiddler$\" field=\"$field$\" tag=\"input\" placeholder=\"$placeholder$\" default=\"\" class=\"$class$\" size=\"$size$\"/>|<|<|<|<|<|<|\n\\end\n<<inputSingle>>",
+            "modified": "20141217110836749",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/single"
+        },
+        "$:/plugins/amp/BT/forms/input/publications/authors": {
+            "created": "20141129160759567",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define editFirstAuthor(temp:\"$:/temp/publication\")\n<$list filter=\"[all[current]tag[$:/type/author]]\">{{!!person_name}} {{!!person_surname}}</$list><$list filter=\"[all[current]!tag[$:/type/author]]\"><$edit-text tiddler=\"$temp$\" field=\"author1\" tag=\"input\"/></$list>\n\\end\n\n\\define selectFirstAuthor(temp:\"$:/temp/publication\")\n<$list filter=\"[all[current]!tag[$:/type/author]]\"><$select tiddler=\"$temp$\" field=\"author1\"><$list filter='[all[tiddlers]tag[$:/type/author]sort[title]]'>\n<option value=<<currentTiddler>>>\n<$view field='title'/>\n</option>\n</$list>\n</$select></$list>\n\\end\n\n\\define editAuthor(n,temp:\"$:/temp/publication\")\n<$edit-text tiddler=\"$temp$\" field=\"author$n$\" tag=\"input\"/>\n\\end\n\n\\define selectAuthor(n,temp:\"$:/temp/publication\")\n<$select tiddler=\"$temp$\" field=\"author$n$\">\n<$list filter='[all[tiddlers]tag[$:/type/author]sort[title]]'>\n<option value=<<currentTiddler>>>\n<$view field='title'/>\n</option>\n</$list>\n</$select>\n\\end\n\n\\define button(state:\"$:/state/pubAuthors\")\n<$reveal state=\"$state$\" type=\"nomatch\" text=\"show\"><$button set=\"$state$\" setTo=\"show\"> + </$button></$reveal><$reveal state=\"$state$\" type=\"match\" text=\"show\"><$button set=\"$state$\" setTo=\"hide\"> - </$button></$reveal>\n\\end\n\n\\define inputAuthors(temp:\"$:/temp/publication\")\n|!Authors |<<selectFirstAuthor>>|<<editFirstAuthor>>|<|<|<|<|<|\n|~|<<selectAuthor \"2\">>|<<editAuthor \"2\">>|<|<|<|<|<|\n|~|<<selectAuthor \"3\">>|<<editAuthor \"3\">>|<|<|<|<|<|\n|~|<<selectAuthor \"4\">>|<<editAuthor \"4\">>|<|<|<|<|<|\n\\end\n\n<<inputAuthors>>",
+            "modified": "20141215003326605",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/publications/authors"
+        },
+        "$:/plugins/amp/BT/lists/authors": {
+            "text": "\\define lingo-base() $:/language/Search/\n<$linkcatcher to=\"$:/temp/advancedsearch\">\n<<inputSlider form:\"$:/plugins/amp/BT/new/author\" contentClass=\"tc-tiddler-info\" btnClass:\"home\">>\n\n<h1>Authors</h1>\n\n<<searchBox>>\n\n</$linkcatcher>\n\n<br>\n<div class=\"troiscolonnes\">\n    <$reveal state=\"$:/temp/advancedsearch\" type=\"nomatch\" text=\"\">\n        <$list filter=\"[!is[system]tag[$:/type/author]search:title{$:/temp/advancedsearch}]\">\n             {{||$:/plugins/amp/BT/lists/authors/template}}\n        </$list>\n    </$reveal>\n    <$reveal state=\"$:/temp/advancedsearch\" type=\"match\" text=\"\">\n        <$list filter=\"[tag[$:/type/author]sort[person_surname]]\">\n             {{||$:/plugins/amp/BT/lists/authors/template}}\n        </$list>\n    </$reveal>\n</div>",
+            "caption": "Authors",
+            "created": "20141209140804449",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/people",
+            "modified": "20141214145028957",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Home",
+            "title": "$:/plugins/amp/BT/lists/authors"
+        },
+        "$:/plugins/amp/BT/lists/publications": {
+            "created": "20141210075346769",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define lingo-base() $:/language/Search/\n\\define scholarsList(type,sort:title,order,columns)\n<<inputSlider \"$:/plugins/amp/BT/new/publication\" contentClass=\"tc-tiddler-info\" btnClass=\"home\">>\n\n<h1>Publications</h1>\n\n<$linkcatcher to=\"$:/temp/advancedsearch\">\n\n<<searchBox>>\n\n{{$:/plugins/amp/BT/lists/publications/filter}}\n\n</$linkcatcher>\n<div class=\"$columns$\" style=\"clear:both\">\n\n<$reveal state=\"$:/temp/advancedsearch\" type=\"nomatch\" text=\"\">\n\n<$list filter=\"[!is[system]tag[$type$]search:title{$:/temp/advancedsearch}$(order)$[$sort$]]\">\n    {{||$:/plugins/amp/BT/lists/publications/template}}\n</$list>\n\n</$reveal>\n\n<$reveal state=\"$:/temp/advancedsearch\" type=\"match\" text=\"\">\n    <$list filter=\"[all[tiddlers]tag[$type$]$(order)$[$sort$]]\">\n        {{||$:/plugins/amp/BT/lists/publications/template}}\n    </$list>\n</$reveal>\n</div>\n\\end\n\n<$set name=\"order\" value={{$:/state/sort/publications!!order}}>\n<$macrocall $name=\"scholarsList\" \n    type=\"$:/type/publication\" \n    sort={{$:/state/sort/publications}}/>\n</$set>",
+            "caption": "Publications",
+            "icon": "$:/plugins/amp/BT/images/book",
+            "modified": "20141215003648173",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Home",
+            "title": "$:/plugins/amp/BT/lists/publications",
+            "type": ""
+        },
+        "$:/plugins/amp/BT/ViewTemplate/person/publications": {
+            "text": "\\define publicationsList()\n<$list filter=\"[all[current]!is[system]tag[$:/type/author]]\">\n    <$list filter=\"[all[current]listed[]tag[$:/type/publication]!has[draft.of]] [all[current]listed[authors]tag[$:/type/publication]!has[draft.of]] +[sort[publication_date]]\">\n        <br>— <$link to={{!!title}}><$transclude tiddler={{!!icon}}/> <$view field=\"publication_title\"/>, <$view field=\"publication_date\"/></$link>\n    </$list>\n</$list>\n\\end\n\n<div class=\"tc-menu-list-item text-grey\">\n    <$list filter=\"[all[current]listed[authors]tag[$:/type/publication]] +[limit[1]]\">\n       Publications :\n    </$list>\n    <<publicationsList>>\n</div>",
+            "created": "20140616154022572",
+            "creator": "Alberto Molina Pérez",
+            "list-before": "$:/plugins/amp/BT/ViewTemplate/TabsBar",
+            "modified": "20141211221008017",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewTemplate",
+            "title": "$:/plugins/amp/BT/ViewTemplate/person/publications"
+        },
+        "$:/plugins/amp/BT/lists/authors/template": {
+            "text": "<$link to={{!!title}}>\n    <span style=\"font-variant:small-caps;\"><$view field=\"person_surname\"/></span>, <$view field=\"person_name\"/><br>\n</$link>",
+            "created": "20141211223021268",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141211223125775",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/lists/authors/template"
+        },
+        "$:/plugins/amp/BT/lists/publications/template": {
+            "text": "<$reveal state=\"$:/state/sort/publications\" type=\"match\" text=\"author\">\n    <$link>\n       <$transclude tiddler={{!!icon}}/>&nbsp;&nbsp;\n       <$list filter=\"[list[!!authors]]\">\n           <span style=\"font-variant:small-caps\">\n               <$view field=\"person_surname\"/>\n           </span> —  \n        </$list>\n        <$view field=\"publication_title\"/>, \n        <$view field=\"publication_date\"/>\n    </$link>\n    <br>\n</$reveal>\n\n<$reveal state=\"$:/state/sort/publications\" type=\"match\" text=\"publication_title\">\n    <$link>\n        <$transclude tiddler={{!!icon}}/>&nbsp;&nbsp;<$view field=\"publication_title\"/> — \n           <$list filter=\"[list[!!authors]]\">\n               <span style=\"font-variant:small-caps\"><$view field=\"person_surname\"/>, </span>\n            </$list>\n            <$view field=\"publication_date\"/>\n        </$link>\n        <br>\n        </$reveal>\n        <$reveal state=\"$:/state/sort/publications\" type=\"match\" text=\"publication_date\">\n            <$link>\n                <$transclude tiddler={{!!icon}}/>&nbsp;&nbsp;<$view field=\"publication_date\"/> — <$list filter=\"[list[!!authors]]\"><span style=\"font-variant:small-caps\"><$view field=\"person_surname\"/></span>, </$list><$view field=\"publication_title\"/>\n            </$link>\n            <br>\n        </$reveal>",
+            "created": "20141211223956969",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141211225224431",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/lists/publications/template"
+        },
+        "$:/plugins/amp/BT/lists/notes": {
+            "created": "20141209234837975",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define lingo-base() $:/language/Search/\n\\define scholarsList(type)\n<<inputSlider form:\"$:/plugins/amp/BT/new/note\" contentClass=\"tc-tiddler-info\" btnClass=\"home\">>\n\n<h1>Notes</h1>\n\n<$linkcatcher to=\"$:/temp/advancedsearch\">\n\n<<searchBox>>\n\n{{$:/plugins/amp/BT/lists/notes/filter}}\n\n\n</$linkcatcher>\n\n<div class=\"deuxcolonnes\">\n<$list filter=\"$type$ +[search{$:/temp/advancedsearch}sort[]]\">\n    <$reveal state=\"$:/temp/advancedsearch\" type=\"nomatch\" text=\"\">\n        <$link><$transclude tiddler={{!!icon}}/><$view field=\"title\"/></$link><br>\n    </$reveal>\n\n    <$reveal state=\"$:/temp/advancedsearch\" type=\"match\" text=\"\">  \n        <$link><$transclude tiddler={{!!icon}}/><$view field=\"title\"/></$link><br>\n    </$reveal>\n</$list>\n\n</div>\n\\end\n\n<$macrocall $name=\"scholarsList\"\n    type={{$:/state/sort/notes}}\n    />\n    ",
+            "caption": "Notes",
+            "icon": "$:/plugins/amp/BT/images/edit",
+            "modified": "20141216084150025",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Home",
+            "title": "$:/plugins/amp/BT/lists/notes"
+        },
+        "$:/state/sort/notes": {
+            "text": "[tag[$:/type/comment]] [tag[$:/type/note]] [tag[$:/type/idea]]",
+            "modified": "20141214140526232",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/state/sort/notes"
+        },
+        "$:/state/sort/publications": {
+            "title": "$:/state/sort/publications",
+            "text": "publication_date",
+            "modified": "20141212094955192",
+            "modifier": "Alberto Molina Pérez",
+            "order": "sort"
+        },
+        "$:/plugins/amp/BT/new/author": {
+            "created": "20141213004125117",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define newAuthor()\n<h1>New author</h1>\n{{New person}}\n\\end\n<<newAuthor>>",
+            "modified": "20141214135858057",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/new/author"
+        },
+        "$:/plugins/amp/BT/reading/home": {
+            "text": "",
+            "created": "20141204213518768",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141213170043409",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/reading/home"
+        },
+        "$:/plugins/amp/BT/lists/publications/filter": {
+            "created": "20141214004448854",
+            "creator": "Alberto Molina Pérez",
+            "text": "<table class=\"invisible\">\n<tr>\n<td>\n<$radio tiddler=\"$:/state/sort/publications\" field=\"text\" value=\"author\"> Author</$radio>\n</td>\n<td>\n<$radio tiddler=\"$:/state/sort/publications\" field=\"text\" value=\"publication_title\"> Title</$radio>\n</td>\n<td>\n<$radio tiddler=\"$:/state/sort/publications\" field=\"text\" value=\"publication_date\" default=\"\"> Year</$radio>\n</td>\n<td>\n<$checkbox tiddler=\"$:/state/sort/publications\" field=\"order\" checked=\"!sort\" unchecked=\"sort\"> reverse</$checkbox>\n</td>\n</tr>\n</table>",
+            "modified": "20141214005440915",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/lists/publications/filter"
+        },
+        "$:/plugins/amp/BT/new/note": {
+            "created": "20141213151848097",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define note()\n<$button set=\"$:/state/input/note\" setTo=\"note\" class=\"tc-btn-grey\">\n    / note\n</$button>\n\\end\n\\define idea()\n<$button set=\"$:/state/input/note\" setTo=\"idea\" class=\"tc-btn-grey\">\n    / idea\n</$button>\n\\end\n\n<$reveal state=\"$:/state/input/note\" type=\"match\" text=\"note\" default=\"note\">\n\n!New note <<idea>>\n<<newNote>>\n\n</$reveal>\n<$reveal state=\"$:/state/input/note\" type=\"match\" text=\"idea\" default=\"note\">\n\n!New idea <<note>>\n<<newNote \"idea\">>\n\n</$reveal>\n<<note>>\n",
+            "modified": "20141229222718083",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/new/note"
+        },
+        "$:/plugins/amp/BT/lists/notes/filter": {
+            "created": "20141214231247799",
+            "creator": "Alberto Molina Pérez",
+            "text": "<table class=\"invisible\">\n<tr>\n<td>\n<$radio tiddler=\"$:/state/sort/notes\" field=\"text\" value=\"[tag[$:/type/comment]] [tag[$:/type/note]] [tag[$:/type/idea]]\"> All</$radio>\n</td>\n<td>\n<$radio tiddler=\"$:/state/sort/notes\" field=\"text\" value=\"[tag[$:/type/comment]]\"> Comments</$radio>\n</td>\n<td>\n<$radio tiddler=\"$:/state/sort/notes\" field=\"text\" value=\"[tag[$:/type/note]]\"> Notes</$radio>\n</td>\n<td>\n<$radio tiddler=\"$:/state/sort/notes\" field=\"text\" value=\"[tag[$:/type/idea]]\" default=\"\"> Ideas</$radio>\n</td>\n</tr>\n</table>\n",
+            "modified": "20141214231253680",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/lists/notes/filter"
+        },
+        "$:/plugins/amp/BT/new/quote": {
+            "created": "20141214232243451",
+            "creator": "Alberto Molina Pérez",
+            "text": "{{||$:/plugins/amp/BT/forms/input/quotes}}\n{{||$:/plugins/amp/BT/buttons/input/quotes}}",
+            "title": "$:/plugins/amp/BT/new/quote",
+            "tags": "BottomTabs",
+            "modified": "20141214232359311",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/new/publication": {
+            "text": "{{||$:/plugins/amp/BT/forms/input/publications}}\n{{||$:/plugins/amp/BT/buttons/input/publications}}",
+            "created": "20141215003419205",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141215003514317",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/new/publication"
+        },
+        "$:/plugins/amp/BT/templates/tabs/notes": {
+            "text": "<h2><$link to={{!!title}}><$view field=\"title\"/></$link></h2>\n\n<h3><$transclude field=\"description\"/></h3>\n\n<$list filter=\"[all[current]list[!!about]] [all[current]list[!!parent]] [all[current]list[!!source]] -[title<storyTiddler>]\" template=\"$:/core/ui/TagTemplate\"/>\n<$list filter=\"[all[current]tags[]!is[system]]\" template=\"$:/core/ui/TagTemplate\"/>\n\n<blockquote>\n\n<$transclude field=\"text\" mode=\"block\"/>\n\n</blockquote>\n\n<br>",
+            "created": "20141229112157236",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141229114846928",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/template BottomTabs",
+            "title": "$:/plugins/amp/BT/templates/tabs/notes"
+        },
+        "$:/plugins/amp/BT/templates/tabs/quotes": {
+            "created": "20140422115346864",
+            "creator": "Alberto Molina",
+            "text": "<div class=\"cit\">\n\n!!!''{{!!description}}''\n\n{{!!text}}\n\n<cite>\n<$link>{{!!title}}</$link>\n</cite>\n</div>",
+            "modified": "20141230101722919",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/template",
+            "title": "$:/plugins/amp/BT/templates/tabs/quotes"
+        },
+        "$:/plugins/amp/BT/templates/tabs/chapters": {
+            "created": "20141229113512679",
+            "creator": "Alberto Molina Pérez",
+            "text": "<h3><$link to={{!!title}}>Chap. <$view field=\"order\"/> : <$view field=\"chapter_title\"/></$link></h3>\n\n<h4><$transclude field=\"description\"/></h4>",
+            "modified": "20141229120505064",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/template BottomTabs",
+            "title": "$:/plugins/amp/BT/templates/tabs/chapters"
+        },
+        "$:/plugins/amp/BT/macros/authors": {
+            "text": "\\define authorsOne()\n[[$(author1)$]]\n\\end\n\n\\define authorsTwo()\n[[$(author1)$]] [[$(author2)$]]\n\\end\n\n\\define authorsThree()\n[[$(author1)$]] [[$(author2)$]] [[$(author3)$]]\n\\end\n\n\\define authorsFour()\n[[$(author1)$]] [[$(author2)$]] [[$(author3)$]] [[$(author4)$]]\n\\end\n\n\n\\define authorsTitleOne()\n$(author1_surname)$\n\\end\n\n\\define authorsTitleTwo()\n$(author1_surname)$ & $(author2_surname)$\n\\end\n\n\\define authorsTitleThree()\n$(author1_surname)$, $(author2_surname)$ & $(author3_surname)$\n\\end\n\n\\define authorsTitleFour()\n$(author1_surname)$ et al.\n\\end\n",
+            "created": "20141231083553150",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231083716306",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/authors"
+        },
+        "$:/type/author": {
+            "text": "",
+            "caption": "Author",
+            "color": "#ff8383",
+            "created": "20141230112836838",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/person",
+            "modified": "20141230123015971",
+            "modifier": "Alberto Molina Pérez",
+            "parent": "$:/type/person",
+            "tags": "",
+            "title": "$:/type/author"
+        },
+        "$:/type/publication": {
+            "text": "",
+            "caption": "Publication",
+            "created": "20141231095338350",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231095340238",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/type/publication"
+        },
+        "$:/type/book": {
+            "text": "",
+            "caption": "Book",
+            "color": "#d98f77",
+            "created": "20141230120648325",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/book",
+            "modified": "20141231095320438",
+            "modifier": "Alberto Molina Pérez",
+            "parent": "$:/type/publication",
+            "title": "$:/type/book"
+        },
+        "$:/type/article": {
+            "text": "",
+            "caption": "Article",
+            "color": "#77add9",
+            "created": "20141231095410708",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/article",
+            "modified": "20141231095451721",
+            "modifier": "Alberto Molina Pérez",
+            "parent": "$:/type/publication",
+            "title": "$:/type/article"
+        },
+        "$:/type/quote": {
+            "text": "",
+            "caption": "Quote",
+            "color": "#deb887",
+            "created": "20141231094555263",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/quote",
+            "modified": "20141231094904229",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/type",
+            "title": "$:/type/quote"
+        },
+        "$:/type/note": {
+            "text": "",
+            "caption": "Note",
+            "color": "#ffa500",
+            "created": "20141231095056897",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/edit",
+            "modified": "20141231095228418",
+            "modifier": "Alberto Molina Pérez",
+            "parent": "$:/type/comment",
+            "title": "$:/type/note"
+        },
+        "$:/type/idea": {
+            "text": "",
+            "caption": "Idea",
+            "color": "#ffd700",
+            "created": "20141231095139943",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/idea",
+            "modified": "20141231095544923",
+            "modifier": "Alberto Molina Pérez",
+            "parent": "$:/type/comment",
+            "title": "$:/type/idea"
+        },
+        "$:/plugins/amp/BT/macros/pubButton": {
+            "text": "\\define pubButton(type, tempTiddler:\"$:/temp/publication\", number, fields)\n<strong><<$type$Title$number$>></strong>\n<$button>\n    <$action-deletefield $tiddler=\"$tempTiddler$\" author1 author2 author3 author4/>\n    <$action-sendmessage $message=\"tm-new-tiddler\" $param=\"$tempTiddler$\"\n        title=<<$type$Title$number$>>\n        tags=\"$:/type/publication $:/type/$type$\"\n        color={{$:/type/$type$!!color}}\n        icon={{$:/type/$type$!!icon}}\n        authors=<<authors$number$>>\n        authors_title=<<authorsTitle$number$>>\n        />\n    <$action-deletefield $tiddler=\"$tempTiddler$\" $fields$/>\n    add\n</$button>\n\\end",
+            "created": "20141231105432836",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231111452882",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/pubButton"
+        }
+    }
+}

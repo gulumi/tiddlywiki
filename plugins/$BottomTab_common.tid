@@ -1,0 +1,823 @@
+caption: Common
+created: 20141112101154037
+creator: Alberto Molina Pérez
+dependents: $:/plugins/amp/BT/noSysTags
+description: BottomTabs: common tools
+modified: 20141231104413444
+modifier: Alberto Molina Pérez
+plugin-type: plugin
+tags: BottomTabs
+title: $:/plugins/amp/BT/common
+type: application/json
+version: 0.1.63
+
+{
+    "tiddlers": {
+        "$:/plugins/amp/BT/images/info": {
+            "text": "<$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"nomatch\" text=\"\">\n+ <i class=\"fa fa-info\"></i>\n</$reveal>\n<$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"match\" text=\"\">\ninfo\n</$reveal>",
+            "created": "20141108172611187",
+            "creator": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/info",
+            "modified": "20141118114352989",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/tabs/info": {
+            "created": "20141106161534068",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define tabInfo()\n<div class=\"tc-menu-list-item\">\n<div class=\"text-grey\">\nChildren of this tiddler:\n</div>\n<div class=\"tc-menu-list-subitem\">\n<$list filter=\"[all[current]listed[source]] [all[current]listed[parent]] +[!is[system]!has[draft.of]]\" template={{$(currentTab)$!!template}} emptyMessage=\"@@.text-grey none@@\"/>\n</div>\n\n<div class=\"text-grey\">\nAbout this tiddler:\n</div>\n<div class=\"tc-menu-list-subitem\">\n<$list filter=\"[all[current]listed[about]!is[system]!has[draft.of]]\" template={{$(currentTab)$!!template}} emptyMessage=\"@@.text-grey none@@\"/>\n</div>\n\n<div class=\"text-grey\">\nTagging:\n</div>\n<div class=\"tc-menu-list-subitem\">\n<$list filter=\"[all[current]tagging[]!is[system]!has[draft.of]]\" template={{$(currentTab)$!!template}} emptyMessage=\"@@.text-grey none@@\"/>\n</div>\n</div>\n\\end\n\n<<tabInfo>>",
+            "caption": "<<BTcaption>>",
+            "list-before": "",
+            "modified": "20141229202459344",
+            "title": "$:/plugins/amp/BT/tabs/info",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/tab $:/action/is/default",
+            "description": "Info",
+            "dependencies": "",
+            "template": "$:/plugins/amp/BT/templates/tabs/info",
+            "icon": "$:/plugins/amp/BT/images/info"
+        },
+        "$:/plugins/amp/BT/newContentHere/macro": {
+            "text": "\\define newContentHere(contents,addLabel:\"add\",addTooltip:\"add a new tiddler\",cancelTooltip:\"Cancel adding new tiddler.\",cancelLabel:{{$:/core/images/cancel-button}})\n<$reveal type=\"nomatch\" state=\"!!slider\" text=\"show\">\n<span title=\"$addTooltip$\" style=\"float:right;position:relative;top:5px;\">\n<$button set=\"!!slider\" setTo=\"show\" class=\"tc-btn-invisible\">{{$:/core/images/new-button}}</$button>\n</span>\n</$reveal>\n\n<$reveal type=\"match\" state=\"!!slider\" text=\"show\">\n\n<span title=\"$cancelTooltip$\" style=\"float:right;position:relative;top:5px;\"><$button class=\"tc-btn-invisible\" set=\"!!slider\" setTo=\"hide\">$cancelLabel$</$button></span>\n\n<$transclude tiddler=\"$contents$\" mode=\"block\"/>\n\n</$reveal>\n\\end\n<<newContentHere>>",
+            "created": "20141109132847170",
+            "creator": "Alberto Molina Pérez",
+            "dependencies": "",
+            "modified": "20141214142454503",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs @trash",
+            "title": "$:/plugins/amp/BT/newContentHere/macro"
+        },
+        "$:/plugins/amp/BT/images/macro": {
+            "text": "\\define BottomTabs-image(fa-name,image-name,label)\n<$reveal state=\"$:/_images/$image-name$!!modified\" type=\"nomatch\" text=\"\">\n    {{$:/_images/$image-name$}}\n</$reveal>\n<$reveal state=\"$:/_images/$image-name$!!modified\" type=\"match\" text=\"\">\n    <$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"nomatch\" text=\"\">\n        <i class=\"fa $fa-name$\"></i>\n    </$reveal>\n    <$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"match\" text=\"\">\n        $label$\n    </$reveal>\n</$reveal>\n\\end",
+            "created": "20141111230139734",
+            "creator": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/macro",
+            "modified": "20141118114411095",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro BottomTabs"
+        },
+        "$:/plugins/amp/BT/images/person": {
+            "text": "<<BottomTabs-image \"fa-user\" \"person\" \"Person\">>",
+            "created": "20140725155839838",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141118114412233",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/person",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/images/done": {
+            "text": "<<BottomTabs-image \"fa-check\" \"done\" \"Done\">>",
+            "created": "20141104120913843",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141118114414563",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/done",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/images/comments-o": {
+            "text": "<$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"nomatch\" text=\"\">\n<i class=\"fa fa-comments-o\"></i>\n</$reveal>\n<$reveal state=\"$:/plugins/TheDiveO/FontAwesome/fonts/FontAwesome!!modified\" type=\"match\" text=\"\">\ncomments\n</$reveal>",
+            "created": "20141116005848105",
+            "creator": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/comments-o",
+            "modified": "20141118114425530",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/tabs/comments": {
+            "created": "20140517111844484",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<inputSlider \"$:/plugins/amp/BT/new/comment\" btnClass:\"tab\">>\n\n<<tabContents>>",
+            "caption": "<<BTcaption>>",
+            "color": "#d3d3d3",
+            "description": "Comments",
+            "filter": "[all[current]listed[source]] [all[current]listed[about]] +[tag[$:/type/comment]]",
+            "filter_related": "[all[current]tagging[]] [all[current]listed[source]listed[about]] [all[current]listed[source]listed[source]] [all[current]listed[source]listed[parent]] [all[current]listed[source]tagging[]] [all[current]listed[about]listed[about]] [all[current]listed[about]listed[parent]] [all[current]listed[about]tagging[]] [all[current]listed[parent]listed[about]] [all[current]listed[parent]listed[parent]] [all[current]listed[parent]tagging[]] +[tag[$:/type/comment]!title{!!title}!is[system]!has[draft.of]sort[title]]",
+            "icon": "$:/plugins/amp/BT/images/comments-o",
+            "modified": "20141229120126885",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/tab $:/action/is/default",
+            "title": "$:/plugins/amp/BT/tabs/comments",
+            "template": "$:/plugins/amp/BT/templates/tabs/comments"
+        },
+        "$:/plugins/amp/BT/images/check": {
+            "text": "<<BottomTabs-image \"fa-check-square-o\" \"tasks\" \"Tasks\">>",
+            "created": "20140725151137471",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141118114428790",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/images/check",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/css/table/invisible": {
+            "created": "20140709165930503",
+            "creator": "Alberto Molina Pérez",
+            "text": "html body.tc-body .invisible {\n     border-color:#fff;\n     border-width:0px\n}\n\nhtml body.tc-body .invisible th {\n     border-color:#fff;\n     border-width:0px;\n}\n\nhtml body.tc-body .invisible tr {\n     border-color:#fff;\n     border-width:0px;\n}\n\nhtml body.tc-body .invisible td {\n     border-color:#fff;\n     border-width:0px;\n}",
+            "modified": "20141121113746807",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet",
+            "title": "$:/plugins/amp/css/table/invisible"
+        },
+        "$:/plugins/amp/BT/images/edit": {
+            "text": "<<BottomTabs-image \"fa-edit\" \"edit\" \"Edit\">>",
+            "created": "20141122232121975",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141125094617521",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/edit"
+        },
+        "$:/config/BottomTabs/colors/$:/plugins/amp/BT": {
+            "text": "blue:#F6F6FF\nred:#FFEEEE\nyellow:#FFFFDD",
+            "created": "20141107223855525",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141123115654084",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/config/BottomTabs/colors/$:/plugins/amp/BT",
+            "type": "application/x-tiddler-dictionary"
+        },
+        "$:/config/BottomTabs/position/$:/plugins/amp/BT": {
+            "title": "$:/config/BottomTabs/position/$:/plugins/amp/BT",
+            "text": "right",
+            "created": "20141111235818715",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141123143632943",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs"
+        },
+        "$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags": {
+            "created": "20141123120338681",
+            "text": "hide",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141123121106548",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags"
+        },
+        "$:/plugins/amp/BT/button/noSysTags": {
+            "created": "20141108192721447",
+            "creator": "Alberto Molina Pérez",
+            "text": "<$reveal state=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" type=\"match\" text=\"show\" default=\"hide\">\n<$button>\n    <$action-setfield $tiddler=\"$:/core/ui/ViewTemplate/tags\" tags=\"\"/>\n    <$action-setfield $tiddler=\"$:/plugins/amp/BT/noSysTags/ViewTemplate/tags\" tags=\"$:/tags/ViewTemplate\"/>\n    <$action-setfield $tiddler=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" text=\"hide\"/>\n    <$action-sendmessage $message=\"tm-notify\" $param=\"$:/plugins/amp/BT/noSysTags/notification/hidden\"/>\nHide\n</$button>\n</$reveal>\n<$reveal state=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" type=\"match\" text=\"hide\" default=\"hide\">\n<$button>\n    <$action-setfield $tiddler=\"$:/core/ui/ViewTemplate/tags\" tags=\"$:/tags/ViewTemplate\"/>\n    <$action-setfield $tiddler=\"$:/plugins/amp/BT/noSysTags/ViewTemplate/tags\" tags=\"\"/>\n    <$action-setfield $tiddler=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" text=\"show\"/>\n    <$action-sendmessage $message=\"tm-notify\" $param=\"$:/plugins/amp/BT/noSysTags/notification/visible\"/>\nShow\n</$button>\n</$reveal>",
+            "dependencies": "$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags $:/core/ui/ViewTemplate/tags $:/plugins/amp/BT/noSysTags/ViewTemplate/tags $:/plugins/amp/BT/noSysTags/notification/hidden $:/plugins/amp/BT/noSysTags/notification/visible",
+            "modified": "20141231101734690",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/button/noSysTags"
+        },
+        "$:/plugins/amp/BT/config/noSysTags": {
+            "text": "\\define buttonState()\n<$reveal state=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" type=\"match\" text=\"show\" default=\"hide\">Hide</$reveal>\n<$reveal state=\"$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags\" type=\"match\" text=\"hide\" default=\"hide\">Show</$reveal>\n\\end\n\n<<buttonState>> the system tags (those starting with  `$:/`) from the regular tiddlers:\n{{$:/plugins/amp/BT/button/noSysTags}}\n",
+            "caption": "System tags",
+            "created": "20141123122514969",
+            "creator": "Alberto Molina Pérez",
+            "dependencies": "$:/config/SystemTags/Visibility/$:/plugins/amp/BT/noSysTags $:/plugins/amp/BT/button/noSysTags",
+            "modified": "20141125094703042",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ControlPanel/Appearance $:/type/config BottomTabs",
+            "title": "$:/plugins/amp/BT/config/noSysTags"
+        },
+        "$:/plugins/amp/BT/config/appearance": {
+            "created": "20141123140253665",
+            "creator": "Alberto Molina Pérez",
+            "text": "!!!''~BottomTabs'' tweaks\n<$set name=\"plugins\" filter=\"[type[application/json]prefix[$:/plugins/amp/BT]]\"><small>//Plugins installed:  \n<$list filter=<<plugins>>>\n<$link to={{!!title}}>{{!!caption}}</$link> (v. {{!!version}});\n</$list>//</small>\n</$set>\n\n\n<<tabs \"[all[tiddlers+shadows]tag[$:/type/config]tag[BottomTabs]]\" \"$:/plugins/amp/BT/config/BottomTabs\">>",
+            "caption": "~BottomTabs tweaks",
+            "dependencies": "$:/plugins/amp/BT/config/BottomTabs",
+            "modified": "20141215105206824",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/ControlPanel/Appearance",
+            "title": "$:/plugins/amp/BT/config/appearance"
+        },
+        "$:/plugins/amp/BT/css/BottomTabs/tabs": {
+            "created": "20140620142406356",
+            "creator": "Alberto Molina Pérez",
+            "text": ".bottom-tabs {\n margin: 0px 0px -42px 0px;\n}\n\n.tc-tab-divider {\n display: none;\n}\n\n.tc-tiddler-controls .close-tabs {\n color: red;\n min-width:2em;\n position: relative;\n bottom: -4px;\n right: -5px;\n}\n\n.bottom-tabs div.tc-tab-buttons {\n text-align: {{$:/config/BottomTabs/position/$:/plugins/amp/BT}};\n padding: 0px 0px 14px 0px;\n}\n\n.bottom-tabs .tc-tab-buttons button{\n color: {{$:/config/BottomTabs/caption/color/$:/plugins/amp/BT}};\n background-color: transparent;\n min-width:2em;\n display:inline-block;\n font-size: {{$:/config/BottomTabs/caption/font-size/$:/plugins/amp/BT}};\n text-align:center;\n border-radius: 10px 10px 0px 0px;\n box-shadow: 2px 2px 3px rgba(0, 0, 0, 0) inset;\n}\n\n\n.bottom-tabs .tc-tab-buttons button:not(.tc-tab-selected) {\n background-color: <<color background>>;\n border-left: <<color background>>;\n border-right: <<color background>>;\n border-top: <<color background>>;\n}\n\n.bottom-tabs .tc-tab-buttons button:not(.tc-tab-selected):hover {\n color: <<color foreground>>;\n font-weight: bold;\n font-size: {{$:/config/BottomTabs/caption-selected/font-size/$:/plugins/amp/BT}};\n margin-top:-5px;\n}\n\n\n.bottom-tabs .tc-tab-buttons button.tc-tab-selected {\n font-weight: bold;\n font-size: {{$:/config/BottomTabs/caption-selected/font-size/$:/plugins/amp/BT}};\n padding-bottom:6px;\n margin-bottom: -4px;\n box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1) inset;\n}\n\n.bottom-tabs .tc-tab-buttons.blue button.tc-tab-selected {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##blue}};\n}\n\n.bottom-tabs .tc-tab-buttons.red button.tc-tab-selected {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##red}};\n}\n\n.bottom-tabs .tc-tab-buttons.yellow button.tc-tab-selected {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##yellow}};\n}\n\n.bottom-tabs .tc-tab-content {\n margin: -14px -42px 0px -42px;\n padding: 14px 42px 14px 42px;\n}\n\n.bottom-tabs .tc-tab-content.blue {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##blue}};\n border-top: 1px solid <<colour tiddler-info-border>>;\n border-bottom: 1px solid <<colour tiddler-info-border>>;\n box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1) inset;\n}\n\n.bottom-tabs .tc-tab-content.red {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##red}};\n border-top: 1px solid <<colour tiddler-info-border>>;\n border-bottom: 1px solid <<colour tiddler-info-border>>;\n box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1) inset;\n}\n\n.bottom-tabs .tc-tab-content.yellow {\n background-color: {{$:/config/BottomTabs/colors/$:/plugins/amp/BT##yellow}};\n border-top: 1px solid <<colour tiddler-info-border>>;\n border-bottom: 1px solid <<colour tiddler-info-border>>;\n box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1) inset;\n}",
+            "title": "$:/plugins/amp/BT/css/BottomTabs/tabs",
+            "tags": "$:/tags/Stylesheet BottomTabs",
+            "modifier": "Alberto Molina Pérez",
+            "modified": "20141229101348667",
+            "list-after": "",
+            "dependencies": "$:/config/BottomTabs/colors/$:/plugins/amp/BT $:/config/BottomTabs/position/$:/plugins/amp/BT"
+        },
+        "$:/plugins/amp/BT/notification/noSysTags/hidden": {
+            "created": "20141108202520892",
+            "creator": "Alberto Molina Pérez",
+            "text": "System tags are now hidden",
+            "modified": "20141124154239710",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/notification/noSysTags/hidden",
+            "tags": "BottomTabs",
+            "dependencies": ""
+        },
+        "$:/plugins/amp/BT/notification/noSysTags/visible": {
+            "created": "20141108202218743",
+            "creator": "Alberto Molina Pérez",
+            "text": "System tags are now visible",
+            "modified": "20141124154301674",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/notification/noSysTags/visible",
+            "tags": "BottomTabs",
+            "dependencies": ""
+        },
+        "$:/plugins/amp/BT/config/subtitle": {
+            "created": "20141123122514969",
+            "creator": "Alberto Molina Pérez",
+            "text": "!Subtitle\n\n<$checkbox tiddler=\"$:/core/ui/ViewTemplate/subtitle\" tag=\"$:/tags/ViewTemplate\"> Default</$checkbox>\n\n<$checkbox tiddler=\"$:/plugins/amp/BT/ViewTemplate/subtitle\" tag=\"$:/tags/ViewTemplate\"> Custom </$checkbox>",
+            "caption": "Subtitle",
+            "dependencies": "$:/core/ui/ViewTemplate/subtitle $:/plugins/amp/BT/ViewTemplate/subtitle",
+            "modified": "20141203084606428",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/config BottomTabs",
+            "title": "$:/plugins/amp/BT/config/subtitle"
+        },
+        "$:/core/ui/ViewTemplate/subtitle": {
+            "text": "<div class=\"tc-subtitle\">\n<$link to={{!!modifier}}>\n<$view field=\"modifier\"/>\n</$link> <$view field=\"modified\" format=\"relativedate\"/>\n</div>\n",
+            "title": "$:/core/ui/ViewTemplate/subtitle",
+            "tags": "",
+            "modified": "20141123232137499",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/button/newJournalHere": {
+            "created": "20141109111500946",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define journalButtonTags()\n$:/type/journal\n\\end\n\\define journalButton()\n<$button tooltip={{!!description}} class=<<tv-config-toolbar-class>>>\n<$action-sendmessage $message=\"tm-new-tiddler\" title=<<now \"$(currentTiddlerTag)$ - $(journalTitleTemplate)$\">> tags=<<journalButtonTags>> about=\"[[$(currentTiddlerTag)$]]\" datetime=<<now \"YY0MM0DD0hh0mm0ss\">> description=\"\" tasks=\"\"/>\n<$list filter=\"[<tv-config-toolbar-icons>prefix[yes]]\">\n{{$:/core/images/new-journal-button}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>prefix[yes]]\">\n<span class=\"tc-btn-text\"><$text text={{$:/language/Buttons/NewJournalHere/Caption}}/></span>\n</$list>\n</$button>\n\\end\n<$set name=\"journalTitleTemplate\" value=\"0DD/0MM/YY\">\n<$set name=\"currentTiddlerTag\" value=<<currentTiddler>>>\n<<journalButton>>\n</$set></$set>",
+            "caption": "{{$:/core/images/new-journal-button}} {{$:/language/Buttons/NewJournalHere/Caption}}",
+            "description": "Custom new-here journal button",
+            "modified": "20141125083620150",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewToolbar BottomTabs",
+            "title": "$:/plugins/amp/BT/button/newJournalHere"
+        },
+        "$:/plugins/amp/BT/ViewTemplate/subtitle": {
+            "created": "20140430190143854",
+            "creator": "Alberto Molina",
+            "text": "\\define subtitle(type)\n    <$list filter=\"[all[current]!is[system]has[$type$]!$type$[]]\">\n    <div class=\"my-subtitle\">\n        {{!!$type$}}\n\n    </div>\n</$list>\n\\end\n\n\\define author_subtitle()\n<$list filter=\"[all[current]tag[$:/type/person]!is[system]]\">\n    <div class=\"tc-subtitle\">\n        {{!!birthplace}} {{!!birthdate}} – {{!!deathplace}} {{!!deathdate}}\n    </div>\n</$list>\n\\end\n\n<$list filter=\"[all[current]!tag[$:/action/show/modifier]!tag[$:/action/hide/subtitle]]\">\n<<subtitle \"subtitle\">>\n<<subtitle \"publication_subtitle\">>\n<<subtitle \"chapter_title\">>\n<<author_subtitle>>\n</$list>\n<$list filter=\"[all[current]tag[$:/action/show/modifier]]\">\n{{||$:/core/ui/ViewTemplate/subtitle}}\n</$list>",
+            "list-after": "$:/core/ui/ViewTemplate/title",
+            "modified": "20141216103044502",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewTemplate BottomTabs",
+            "title": "$:/plugins/amp/BT/ViewTemplate/subtitle"
+        },
+        "$:/plugins/amp/BT/images/history": {
+            "text": "<<BottomTabs-image \"fa-history\" \"history\" \"Journal\">>",
+            "created": "20141125085514841",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141125085614031",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/history"
+        },
+        "$:/plugins/amp/BT/macros/inputSlider": {
+            "text": "\\define inputSlider(form,button,contentClass,contentStyle,btnClass)\n<$reveal type=\"nomatch\" state=<<qualify \"$:/state/inputSlider\">> text=\"show\">\n<span title=\"Add\">\n<$button class=\"btn-inputSlider $btnClass$\" set=<<qualify \"$:/state/inputSlider\">> setTo=\"show\"> {{$:/core/images/new-button}} </$button>\n</span>\n</$reveal>\n\n<$reveal type=\"match\" state=<<qualify \"$:/state/inputSlider\">> text=\"show\">\n<span title=\"Cancel\"><$button class=\"btn-inputSlider $btnClass$\" set=<<qualify \"$:/state/inputSlider\">> setTo=\"hide\">{{$:/core/images/cancel-button}}</$button></span>\n\n<div  class=\"$contentClass$\" style=\"$contentStyle$\">\n\n<$transclude tiddler=\"$form$\"/>\n\n<$transclude tiddler=\"$button$\"/>\n\n</div>\n</$reveal>\n\\end\n<<inputSlider>>",
+            "created": "20141124215228582",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141214144617327",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro BottomTabs",
+            "title": "$:/plugins/amp/BT/macros/inputSlider"
+        },
+        "$:/plugins/amp/BT/documentation/common": {
+            "created": "20141109001208674",
+            "creator": "Alberto Molina Pérez",
+            "text": "!![[Basics|$:/plugins/amp/BT/documentation/common]]\n\n* ''Display tabs:'' Create or edit a tiddler and add a tag like `$:/type/something`. You will see, at the bottom right corner of the tiddler, a little icon. It's the default info tab. Click it to see its contents.\n* ''Add new tabs:'' Every tiddler tagged `$:/tabs/something` will appear as tab of all the tiddlers tagged `$:/type/something`.\n* ''Hide tabs:'' hide the bottom tabs of a tiddler with the tag {{$:/action/noTabs||tag}}.\n* ''Colours:'' to change the colours of the bottom tabs, edit the tiddler `$:/tabs/something`, add the field `tabs-colors` and set the value: blue, red or yellow.\n* ''Config:'' it is possible to change the position and the colours in the control panel, under the tabs \"appearance\" and \"bottom tabs\".\n\n* ''Hide BT' subtitle'': hide the BT' subtitle with the tag {{$:/action/hide/subtitle||tag}}.\n* ''Show default subtitle'': show the default subtitle with the tag {{$:/action/show/modifier||tag}}.\n* ''Add to [[Home]]'': add any tiddler to [[Home]] with the tag {{$:/tags/Home||tag}}.\n",
+            "title": "$:/plugins/amp/BT/documentation/common",
+            "modified": "20141229193118358",
+            "tags": "$/type/doc BottomTabs",
+            "modifier": "Alberto Molina Pérez",
+            "source": "$:/plugins/amp/BT/common"
+        },
+        "$:/plugins/amp/BT/macros/appendTitle": {
+            "created": "20141125114358849",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define appendTitle(append)\n$(currentTiddler)$$append$\n\\end",
+            "title": "$:/plugins/amp/BT/macros/appendTitle",
+            "modified": "20141125114612633",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro"
+        },
+        "$:/plugins/amp/BT/forms/input/comments": {
+            "created": "20141124221251266",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define comment(source,pagesChapter,title,description,about,tags,text)\n!New comment\n\n$source$\n$pagesChapter$\n$title$\n$description$\n$about$\n$text$\n\n\\end\n\n<$set name=\"tempTiddler\" value=\"$:/temp/comment\" >\n<$set name=\"Label\" value=\"Comment\" >\n<$set name=\"label\" value=\"comment\" >\n\n<$macrocall $name=\"comment\" \n    source=<<inputSource>>\n    pagesChapter=<<inputPagesChapter>>\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    text=<<inputText>>\n    />\n\n</$set>\n</$set>\n</$set>\n\n",
+            "modified": "20141125224925699",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/comments"
+        },
+        "$:/plugins/amp/BT/buttons/input/comments": {
+            "created": "20141125101553189",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<newNoteButton \"comment\">>",
+            "modified": "20141231101753298",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/comments"
+        },
+        "$:/plugins/amp/BT/css/text/columns": {
+            "text": ".deuxcolonnes {\nvertical-align:top; display:block; \ncolumn-count:2;\n-moz-column-count:2; \n-webkit-column-count:2;\n}\n\n.troiscolonnes {\nvertical-align:top; display:block; \ncolumn-count:3;\n-moz-column-count:3; \n-webkit-column-count:3;\n}\n\n.quatrecolonnes {\nvertical-align:top; display:block; \ncolumn-count:4;\n-moz-column-count:4; \n-webkit-column-count:4;\n}",
+            "created": "20140421190344485",
+            "creator": "Alberto Molina",
+            "dependencies": "",
+            "modified": "20141125174200583",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet BottomTabs",
+            "title": "$:/plugins/amp/BT/css/text/columns",
+            "type": "text/css"
+        },
+        "$:/plugins/amp/BT/forms/input/about": {
+            "created": "20141125192620104",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputAbout()\n|!About |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"about\" tag=\"input\" placeholder=\"[[use brackets]]\" class=\"tc-edit-texteditor\" size=\"60\"/>|<|<|<|<|<|<|\n\\end\n<<inputAbout>>",
+            "modified": "20141216101507419",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/about"
+        },
+        "$:/plugins/amp/BT/forms/input/description": {
+            "created": "20141125192552226",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputDescription()\n|!Description |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"description\" placeholder=\"A brief description of the tiddler's content.\" tag=\"input\" class=\"tc-edit-texteditor\" size=\"60\"/>|<|<|<|<|<|<|\n\\end\n<<inputDescription>>",
+            "modified": "20141216101008977",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/description"
+        },
+        "$:/plugins/amp/BT/forms/input/pages-chapter": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputPagesChapter()\n|!Pages |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"page_alpha\" tag=\"input\" placeholder=\"from\" class=\"tc-edit-texteditor\" size=\"2\"/>|<|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"page_omega\" tag=\"input\" placeholder=\"to\" class=\"tc-edit-texteditor\" size=\"2\"/>|<| !Chapter|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"chapter\" tag=\"input\" placeholder=\"n°\" class=\"tc-edit-texteditor\" size=\"2\"/>|<|\n\\end\n<<inputPagesChapter>>\n",
+            "modified": "20141126215403874",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/pages-chapter"
+        },
+        "$:/plugins/amp/BT/forms/input/source": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputSource()\n|!<br>Source<br>  | {{!!title}} |<|<|<|<|<|<|h\n\\end\n<<inputSource>>",
+            "modified": "20141126215428242",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/source"
+        },
+        "$:/plugins/amp/BT/forms/input/tags": {
+            "created": "20141125192642049",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputTags()\n|!Tags |<$tiddler tiddler=\"$(tempTiddler)$\">{{||$:/core/ui/EditTemplate/tags}}</$tiddler>|<|<|<|<|<|<|\n\\end\n<<inputTags>>",
+            "modified": "20141126215520770",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/tags"
+        },
+        "$:/plugins/amp/BT/forms/input/text": {
+            "created": "20141125192709691",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputText()\n|!Text |<$edit-text tiddler=\"$(tempTiddler)$\" default=\"\" class=\"tc-edit-texteditor\" tag=\"textarea\"/>|<|<|<|<|<|<|\n\\end\n<<inputText>>",
+            "modified": "20141217110541340",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/text"
+        },
+        "$:/plugins/amp/BT/forms/input/title": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputTitle()\n|!$(Label)$ title |<$edit-text tiddler=\"$:/temp/title\" default=\"\" field=\"text\" tag=\"input\" placeholder=\"Your title here\" class=\"tc-edit-texteditor\" size=\"60\"/>|<|<|<|<|<|<|\n\\end\n<<inputTitle>>",
+            "modified": "20141217110608591",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/title"
+        },
+        "$:/plugins/amp/BT/forms/input/chapter-pages": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputChapterPages()\n|!Chapter |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"chapter\" tag=\"input\" placeholder=\"n°\" class=\"tc-edit-texteditor\" size=\"2\"/>|!Pages |<$edit-text tiddler=\"$(tempTiddler)$\" field=\"page_alpha\" tag=\"input\" placeholder=\"from\" class=\"tc-edit-texteditor\" size=\"2\"/>|<|<$edit-text tiddler=\"$(tempTiddler)$\" field=\"page_omega\" tag=\"input\" placeholder=\"to\" class=\"tc-edit-texteditor\" size=\"2\"/>|<|<|\n\\end\n<<inputChapterPages>>",
+            "modified": "20141126215224131",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/chapter-pages"
+        },
+        "$:/plugins/amp/BT/forms/input/title2": {
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputTitle2()\n|!Title |!{{$:/temp/title}} |<|<|<|<|<|<|\n\\end\n\n<<inputTitle2>>\n",
+            "modified": "20141126215638553",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/title2"
+        },
+        "$:/plugins/amp/BT/config/types": {
+            "created": "20141230113142891",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<inputSlider btnClass:\"tab\">>\n\n!Types\n<table style=\"width:100%\">\n<thead>\n    <tr style=\"height:3em\">\n        <th>Name</th>\n        <th>Caption</th>\n        <th>Color</th>\n        <th>Icon</th>\n        <th>Parents</th>\n    </tr>\n</thead>\n<tbody>\n    <$list filter=\"[all[shadows+tiddlers]tags[]prefix[$:/type/]sort[]]\" variable=\"type\">\n    <tr style=\"height:2.5em\">\n    <td style=\"text-align:left;\"><$view tiddler=<<type>> field=\"title\"/></td>\n    <td><$edit-text tiddler=<<type>> field=\"caption\" tag=\"input\" size=\"8\"/></td>\n    <td><$edit-text tiddler=<<type>> field=\"color\" type=\"color\"/></td>\n    <td><$tiddler tiddler=<<type>>><$transclude tiddler={{!!icon}}/></$tiddler><$edit-text tiddler=<<type>> field=\"icon\" tag=\"input\" size=\"6\"/></td>\n    <td><$edit-text tiddler=<<type>> field=\"parent\" tag=\"input\" size=\"8\"/></td>\n    </tr>\n    </$list>\n</tbody>\n</table>",
+            "modified": "20141231102211706",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/action/hide/tabs BottomTabs $:/type/config",
+            "title": "$:/plugins/amp/BT/config/types",
+            "caption": "Type manager"
+        },
+        "$:/plugins/amp/BT/macros/append": {
+            "text": "\\define appendPages()\n$(page_alpha)$-$(page_omega)$\n\\end",
+            "created": "20141126082535629",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141126082708717",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/append"
+        },
+        "$:/plugins/amp/BT/ViewTemplate/TabsBar": {
+            "created": "20141106113206200",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define resettab(state)\n<$reveal state=<<qualify $state$>> type=\"nomatch\" text=\"\">\n   <$tiddler tiddler=<<qualify $state$>>>\n      <div style=\"float:right;clear:right;\" class=\"tc-tiddler-controls\">\n      <span title=\"Close tabs\">\n         <$button set={{!!title}} setTo=\"\" class=\"tc-btn-invisible close-tabs\">{{$:/core/images/close-button}}</$button>\n      </span>\n      </div>\n   </$tiddler>\n</$reveal>\n\\end\n\n\\define bottom-tabs()\n<$tiddler tiddler=<<storyTiddler>> >\n<<tabs tabsList:\"$(tabsList)$\" class:\"bottom-tabs $(color)$\" template:\"$:/plugins/amp/BT/TabsBar/template\">>\n\n </$tiddler>\n\\end\n\n<$list filter=\"[all[current]!tag[$:/action/hide/tabs]]\" variable=\"yes\">\n<$set name=\"tabsList\" filter=\"[all[shadows+tiddlers]tag[$:/type/tab]tag[$:/action/is/default]] [all[current]tags[]prefix[$:/type/]removeprefix[$:/type/]addprefix[$:/tabs/]tagging[]]\">\n<div style=\"clear:both;\">\n<<resettab \"$:/state/tab\">>\n<$tiddler tiddler=<<tabsTag>> >\n    <$reveal state=<<qualify \"$:/state/tab\">> type=\"nomatch\" text=\"\">\n        <$reveal state=\"!!tabs-color\" type=\"nomatch\" text=\"\">\n            <$set name=\"color\" value={{!!tabs-color}} >        \n                <<bottom-tabs>>       \n            </$set>\n        </$reveal>\n        <$reveal state=\"!!tabs-color\" type=\"match\" text=\"\">\n            <$set name=\"color\" value=\"blue\" >        \n                <<bottom-tabs>>       \n            </$set>\n        </$reveal>\n    </$reveal>\n    <$reveal state=<<qualify \"$:/state/tab\">> type=\"match\" text=\"\">\n        <$set name=\"color\" value=\"\" >        \n            <<bottom-tabs>>       \n        </$set>\n    </$reveal>\n</$tiddler>\n</div>\n</$set>\n</$list>\n\n\n",
+            "dependencies": "$:/core/images/close-button $:/plugins/amp/BT/TabsBar/template ",
+            "modified": "20141229181115418",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewTemplate BottomTabs",
+            "title": "$:/plugins/amp/BT/ViewTemplate/TabsBar"
+        },
+        "$:/plugins/amp/BT/ViewTemplate/tags": {
+            "text": "<div class=\"tc-tags-wrapper\">\n<$list filter=\"[all[current]!tag[$:/action/hide/tags]]\" variable=\"yes\">\n<$list filter=\"[all[current]!is[system]list[!!authors]]\" template=\"$:/core/ui/TagTemplate\" storyview=\"pop\"/><$list filter=\"[all[current]!is[system]list[!!source]] [all[current]!is[system]list[!!parent]]\" template=\"$:/core/ui/TagTemplate\" storyview=\"pop\"/><$list filter=\"[all[current]!is[system]list[!!about]]\" template=\"$:/core/ui/TagTemplate\" storyview=\"pop\"/>\n<$list filter=\"[all[current]!is[system]tags[]!is[system]sort[title]] [all[current]is[system]tags[]]\" template=\"$:/core/ui/TagTemplate\" storyview=\"pop\"/>\n</$list>\n</div>",
+            "created": "20141108192418225",
+            "creator": "Alberto Molina Pérez",
+            "list-before": "$:/core/ui/ViewTemplate/body",
+            "modified": "20141206112746262",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewTemplate BottomTabs",
+            "title": "$:/plugins/amp/BT/ViewTemplate/tags",
+            "type": ""
+        },
+        "$:/plugins/amp/BT/buttons/input/person": {
+            "created": "20141205112732555",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define personName()\n$(name)$\n\\end\n\n\\define personSurname()\n$(surname)$\n\\end\n\n\\define personBoth()\n$(name)$ $(surname)$\n\\end\n\n\\define inputButton(tiddler, tags, icon, color)\n<$button>\n    <$action-sendmessage $message=\"tm-new-tiddler\" $param=\"$tiddler$\"\n        tags=\"$:/type/person $tags$\"\n        icon=\"$icon$\"\n        color=\"$color$\"\n        title=<<person$(state)$>>\n        />\n    <$action-deletefield $tiddler=\"$tiddler$\" tags text about description person_name person_surname birthplace birthdate deathplace deathdate/>\n    <$reveal state=\"$:/temp/image!!_canonical_uri\" type=\"nomatch\" text=\"\">\n        <$reveal state=\"$:/temp/image!!type\" type=\"nomatch\" text=\"\">\n            <$action-sendmessage $message=\"tm-new-tiddler\" $param=\"$image$\"\n                tags=\"$:/type/image $tags$\"\n                title=\"Image: $title$\"\n                _canonical_uri={{$:/temp/image!!_canonical_uri}}\n                type={{$:/temp/image!!type}}\n                />\n            <$action-setfield $tiddler=\"$:/temp/person\" picture=\"Image: $(name)$ $(surname)$\"/>\n            <$action-deletefield $tiddler=\"$:/temp/image\" tags _canonical_uri type/>\n        </$reveal>\n    </$reveal>\n    Add\n</$button>\n\\end\n\n\\define input()\n    <$macrocall $name=\"inputButton\"\n        tiddler=\"$:/temp/person\"\n        tags={{$:/temp/person!!tags}}\n        icon={{$:/type/person!!icon}}\n        color={{$:/type/person!!color}}\n        id={{$:/state/input/person!!tiddler_title}}\n/>\n\\end\n\n<$set name=\"name\" value={{$:/temp/person!!person_name}}>\n<$set name=\"surname\" value={{$:/temp/person!!person_surname}}>\n<$set name=\"state\" value={{$:/state/input/person!!tiddler_title}}>\n\n<$macrocall $name=\"input\" />\n\n</$set>\n</$set>\n</$set>\n",
+            "modified": "20141231103725161",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/buttons/input/person"
+        },
+        "New person": {
+            "created": "20141206105846685",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define newPerson()\n{{$:/plugins/amp/BT/forms/input/person}}\n\n<$reveal state=\"$:/state/input/person!!tiddler_title\" type=\"match\" text=\"Name\">\n    <$reveal state=\"$:/temp/person!!person_name\" type=\"nomatch\" text=\"\">\n        {{$:/plugins/amp/BT/buttons/input/person}}\n    </$reveal>\n</$reveal>\n\n<$reveal state=\"$:/state/input/person!!tiddler_title\" type=\"match\" text=\"Surname\">\n    <$reveal state=\"$:/temp/person!!person_surname\" type=\"nomatch\" text=\"\">\n        {{$:/plugins/amp/BT/buttons/input/person}}\n    </$reveal>\n</$reveal>\n\n<$reveal state=\"$:/state/input/person!!tiddler_title\" type=\"match\" text=\"Both\">\n    <$reveal state=\"$:/temp/person!!person_surname\" type=\"nomatch\" text=\"\">\n        <$reveal state=\"$:/temp/person!!person_name\" type=\"nomatch\" text=\"\">\n            {{$:/plugins/amp/BT/buttons/input/person}}\n        </$reveal>\n    </$reveal>\n</$reveal>\n\\end\n<<newPerson>>",
+            "modified": "20141213113424410",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/action/hide/tabs BottomTabs $:/action/hide/tags",
+            "title": "New person"
+        },
+        "$:/plugins/amp/BT/buttons/new-person": {
+            "created": "20141206182141232",
+            "creator": "Alberto Molina Pérez",
+            "text": "<$button tooltip=\"New person\" aria-label=\"New person\" class=<<tv-config-toolbar-class>>>\n<$action-navigate $to=\"New person\"/>\n<$list filter=\"[<tv-config-toolbar-icons>prefix[yes]]\">\n{{$:/plugins/amp/BT/images/person}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>prefix[yes]]\">\n<span class=\"tc-btn-text\"><$text text=\"New person\"/></span>\n</$list>\n</$button>",
+            "modified": "20141209001012334",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/PageControls",
+            "title": "$:/plugins/amp/BT/buttons/new-person",
+            "list-after": "$:/core/ui/Buttons/new-here",
+            "list-before": "$:/core/ui/Buttons/import",
+            "caption": "New person",
+            "description": "Create a new person"
+        },
+        "$:/plugins/amp/BT/forms/input/person": {
+            "text": "\\define inputPersonMoreInfo()\n<$reveal state=\"$:/state/input/person!!more_info\" type=\"nomatch\" text=\"show\">\n\n|invisible tc-table-of-contents|k\n|<<inputPersonConfigButton>>|<$button set=\"$:/state/input/person!!more_info\" setTo=\"show\" class=\"tc-btn-invisible\">{{$:/core/images/right-arrow}}more info</$button>|\n\n</$reveal>\n\n<$reveal state=\"$:/state/input/person!!more_info\" type=\"match\" text=\"show\">\n\n<div class=\"tc-table-of-contents\">\n\n|invisible|k\n|<<inputPersonConfigButton>>|<$button set=\"$:/state/input/person!!more_info\" setTo=\"hide\" class=\"tc-btn-invisible\">{{$:/core/images/down-arrow}}less info</$button> |\n\n</div>\n\n<<inputPersonMoreInfoTable>>\n\n</$reveal>\n\\end\n\n\n\\define inputPersonTypes()\n<table class=\"invisible\">\n<tr>\n<$list filter=\"[all[shadows+tiddlers]parent[$:/type/person]]\">\n<td><$checkbox tiddler=\"$:/temp/person\" tag={{!!title}}> {{!!caption}}</$checkbox></td>\n</$list>\n</tr>\n</table>\n\\end\n\n\n\\define inputPerson()\n<$tiddler tiddler=\"$:/temp/person\">\n\n<<inputPersonName>>\n\n<<inputPersonTypes>>\n\n<<inputPersonRadioButtons>>\n\n<<inputPersonMoreInfo>>\n\n</$tiddler>\n\\end\n\n<<inputPerson>>\n\n",
+            "created": "20141204214445374",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141230113037587",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/forms/input/person"
+        },
+        "$:/plugins/amp/BT/forms/input/image": {
+            "text": "<$tiddler tiddler=\"$:/temp/image\">\n\n|invisible|k\n|Address:|<|\n|<$edit-text field=\"_canonical_uri\" placeholder=\"paste or write here the address of the image\" tag=\"input\" class=\"tc-edit-texteditor\" size=\"60\"/>| <<clear \"$:/temp/image\" \"_canonical_uri\">> |\n\n|invisible|k\n|{{||$:/core/ui/EditTemplate/type}} |\n\n|invisible|k\n| <$image source=\"$:/temp/image\" height=\"300\"/> |\n\n</$tiddler>",
+            "created": "20141206113525643",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141208173417570",
+            "modifier": "Alberto Molina Pérez",
+            "subtitle": "External image",
+            "tags": "BottomTabs $:/action/hide/tabs $:/action/hide/tags",
+            "title": "$:/plugins/amp/BT/forms/input/image"
+        },
+        "$:/plugins/amp/BT/css/text/box": {
+            "text": ".box {\ndisplay:inline-block;\n-moz-border-radius: 10px;\nborder-radius: 10px;\nmargin: 0.3em 1em 1.25em 1em; \npadding:0.25em 3em;\nbackground-color:#ececec;\n}\n\n.box.yellow {\n\tbackground-color:#FFFFDD;\n}\n\n.box.red {\n\tbackground-color:#FFDDDD;\n}\n\n.box.blue {\n\tbackground-color:#F6F6FF;\n}\n\n.important {\n\tdisplay:inline-block;\n\tborder:1px solid #CCCCCC;\n\t-moz-border-radius: 10px;\n\tborder-radius: 10px;\n\tmargin: 1em 1em 1em 1em; \n\tpadding: 0em 3em 1em 6em;\n\tbackground-color:#FFFFCC;\n\tfont-weight: 700;\n\tbox-shadow: 10px 10px 5px #888888;\n}\n\n.important:before {\n\tdisplay: block;\n\tcontent: \"!\";\n\tfont-size: 80px;\n\tfont-weight: bold;\n\tposition: relative;\n\tleft: -50px;\n\ttop: 50px;\n\tcolor: <<color foreground>>;\n}\n\n.important b {\ncolor:red;\n}",
+            "created": "20141208172252734",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141208172816898",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet",
+            "title": "$:/plugins/amp/BT/css/text/box"
+        },
+        "$:/plugins/amp/BT/forms/input/person/name": {
+            "created": "20141208195650796",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputPersonName()\n|invisible|k\n|Name:|Surname:|<|\n|<$edit-text tiddler=\"$:/temp/person\" field=\"person_name\" tag=\"input\" placeholder=\"Name\" class=\"tc-edit-texteditor\" size=\"20\"/>|<$edit-text tiddler=\"$:/temp/person\" field=\"person_surname\" tag=\"input\" placeholder=\"Surname\" class=\"tc-edit-texteditor\" size=\"20\"/>| <<buttonPersonPicture>> |\n|<$list filter=\"[all[tiddlers]tag[$:/type/person]field:person_name{!!person_name}field:person_surname{!!person_surname}]\">@@color:red;There is already a tiddler for that person:@@ <$link><$view field=\"title\"/></$link></$list>|<|<|\n\\end\n\n<<inputPersonName>>",
+            "modified": "20141216103844233",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/person/name"
+        },
+        "$:/plugins/amp/BT/forms/input/person/more-info/table": {
+            "text": "\\define inputPersonMoreInfoTable()\n|invisible|k\n|<$edit-text field=\"birthplace\" tag=\"input\" placeholder=\"Place of birth\" class=\"tc-edit-texteditor\" size=\"40\"/>|<$edit-text field=\"birthdate\" tag=\"input\" placeholder=\"Date of birth\" class=\"tc-edit-texteditor\" size=\"10\"/>|<|<|<|<|<|<|\n|<$edit-text field=\"deathplace\" tag=\"input\" placeholder=\"Place of death\" class=\"tc-edit-texteditor\" size=\"40\"/>|<$edit-text field=\"deathdate\" tag=\"input\" placeholder=\"Date of death\" class=\"tc-edit-texteditor\" size=\"10\"/>|<|<|<|<|<|<|\n\\end\n<<inputPersonMoreInfoTable>>",
+            "created": "20141208204520911",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141208204653636",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/person/more-info/table"
+        },
+        "$:/plugins/amp/BT/forms/input/person/config/RadioButtons": {
+            "text": "\\define inputPersonRadioButtons()\n<$reveal state=\"$:/state/input/person!!config\" type=\"match\" text=\"show\">\n&nbsp;''Tiddler title:''<br>\n<span class=\"box\">\n\n<$radio tiddler=\"$:/state/input/person\" field=\"tiddler_title\" value=\"Name\"> Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</$radio>\n<$radio tiddler=\"$:/state/input/person\" field=\"tiddler_title\" value=\"Surname\"> Surname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</$radio>\n<$radio tiddler=\"$:/state/input/person\" field=\"tiddler_title\" value=\"Both\"> Both</$radio>\n</span>\n</$reveal>\n\\end\n<<inputPersonRadioButtons>>",
+            "created": "20141208202905627",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141208205836923",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/person/config/RadioButtons"
+        },
+        "$:/plugins/amp/BT/forms/input/person/config/button": {
+            "text": "\\define inputPersonConfigButton()\n<$reveal state=\"$:/state/input/person!!config\" type=\"nomatch\" text=\"show\">\n<span><$button set=\"$:/state/input/person!!config\" setTo=\"show\" class=\"tc-btn-invisible\">{{$:/core/images/options-button}}</$button></span>\n</$reveal>\n<$reveal state=\"$:/state/input/person!!config\" type=\"match\" text=\"show\">\n<span><$button set=\"$:/state/input/person!!config\" setTo=\"hide\" class=\"tc-btn-invisible\">{{$:/core/images/options-button}}</$button></span>\n</$reveal>\n\\end",
+            "created": "20141208202702112",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141208202802902",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/person/config/button"
+        },
+        "$:/plugins/amp/BT/forms/input/person/picture": {
+            "text": "\\define buttonPersonPicture()\n<$button class=\"tc-btn-invisible pretty\">\n    <$action-sendmessage $message=\"tm-modal\" $param=\"$:/plugins/amp/BT/forms/input/image\"/>\n    <$reveal state=\"$:/temp/image!!type\" type=\"match\" text=\"\">\n        <span style=\"font-size:2em;\">{{$:/plugins/amp/BT/images/person}}</span>\n    </$reveal>\n    <$reveal state=\"$:/temp/image!!type\" type=\"nomatch\" text=\"\">\n        <$image source=\"$:/temp/image\" width=\"128\"/>\n    </$reveal>\n</$button>\n\\end\n<<buttonPersonPicture>>",
+            "created": "20141208202451894",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141230112410243",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/person/picture"
+        },
+        "$:/state/input/person": {
+            "text": "",
+            "config": "hide",
+            "modified": "20141230112516529",
+            "modifier": "Alberto Molina Pérez",
+            "more_info": "hide",
+            "tiddler_title": "Surname",
+            "title": "$:/state/input/person"
+        },
+        "$:/plugins/amp/BT/css/subtitle": {
+            "created": "20140427104944650",
+            "creator": "Alberto Molina",
+            "text": ".my-subtitle {\n    font-size: 1.8em;\n    font-style: bold;\n    font-weight: 300; \n    line-height: 1.0;\n    margin: 0.2em 0 0.5em 0;\n    text-align: left;\n    color: #b0b0b0;\n}",
+            "modified": "20141210002208939",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet",
+            "title": "$:/plugins/amp/BT/css/subtitle"
+        },
+        "$:/plugins/amp/BT/macros/searchBox": {
+            "created": "20141210121920873",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define searchBox()\n<div class=\"tc-search\">\n{{$:/plugins/amp/BT/images/search}}\n<$edit-text tiddler=\"$:/temp/advancedsearch\" type=\"search\" tag=\"input\" placeholder=\"search here\"/>\n<$reveal state=\"$:/temp/advancedsearch\" type=\"nomatch\" text=\"\">\n<$button class=\"tc-btn-invisible\">\n<$action-setfield $tiddler=\"$:/temp/advancedsearch\" $field=\"text\" $value=\"\"/>\n{{$:/core/images/close-button}}\n</$button>\n&nbsp;&nbsp;&nbsp;\n</$reveal>\n</div>\n\\end\n<<searchBox>>",
+            "modified": "20141211234508189",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro BottomTabs",
+            "title": "$:/plugins/amp/BT/macros/searchBox"
+        },
+        "$:/core/ui/ViewTemplate/tags": {
+            "text": "<div class=\"tc-tags-wrapper\"><$list filter=\"[all[current]tags[]sort[title]]\" template=\"$:/core/ui/TagTemplate\" storyview=\"pop\"/></div>\n",
+            "created": "20141112122042175",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141123121106545",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "",
+            "title": "$:/core/ui/ViewTemplate/tags"
+        },
+        "$:/plugins/amp/BT/css/text/grey": {
+            "created": "20140614234722764",
+            "creator": "Alberto Molina Pérez",
+            "text": ".text-grey {\n\tfont-size: 0.9em;\n\tcolor: #c0c0c0;\n\tfont-weight: 300;\n}",
+            "modified": "20141211010656874",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/css/text/grey",
+            "tags": "$:/tags/Stylesheet BottomTabs"
+        },
+        "$:/plugins/amp/BT/css/image/person": {
+            "created": "20140711080416780",
+            "creator": "Alberto Molina Pérez",
+            "text": ".person {\n\tborder: none;\n\twidth: 128px;\n\tfloat: right;\n\tclear: both;\n\tmargin: 0 0 1em 0.5em;\n\tbox-shadow: 2px 2px 15px 1px rgba(119, 119, 119, 0.5);\n\t-moz-box-shadow: 2px 2px 15px 1px rgba(119, 119, 119, 0.5);\n\t-webkit-box-shadow: 2px 2px 15px 1px rgba(119, 119, 119, 0.5);\n\n}\n",
+            "modified": "20141211215858385",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet",
+            "title": "$:/plugins/amp/BT/css/image/person"
+        },
+        "$:/plugins/amp/BT/ViewTemplate/person/picture": {
+            "text": "<$list filter=\"[all[current]tag[$:/type/person]]\">\n<$reveal type=\"nomatch\" state=\"!!picture\" text=\"\">\n<$image source={{!!picture}} class=\"person\"/>\n</$reveal>\n</$list>\n",
+            "created": "20141206162301561",
+            "creator": "Alberto Molina Pérez",
+            "list-before": "$:/core/ui/ViewTemplate/body",
+            "modified": "20141211111434531",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/ViewTemplate",
+            "title": "$:/plugins/amp/BT/ViewTemplate/person/picture"
+        },
+        "$:/plugins/amp/BT/images/search": {
+            "text": "<<BottomTabs-image \"fa-search\" \"search\" \"Search\">>",
+            "created": "20141210122006626",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141210122041021",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/search"
+        },
+        "$:/plugins/amp/BT/images/question": {
+            "text": "<<BottomTabs-image \"fa-question\" \"question\" \"Question\">>",
+            "created": "20141210122048073",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141210122110907",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/question"
+        },
+        "$:/plugins/amp/BT/images/comment": {
+            "created": "20141212082901738",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<BottomTabs-image \"fa-comment-o\" \"comment\" \"Comment\">>",
+            "title": "$:/plugins/amp/BT/images/comment",
+            "modified": "20141212083157818",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs"
+        },
+        "$:/plugins/amp/BT/images/people": {
+            "text": "<<BottomTabs-image \"fa-users\" \"people\" \"People\">>",
+            "created": "20141212221823959",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141212221844693",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/plugins/amp/BT/images/people"
+        },
+        "$:/plugins/amp/BT/css/buttons": {
+            "created": "20141213163744005",
+            "creator": "Alberto Molina Pérez",
+            "text": ".agenda td button {\n\tpadding: 10%;\n\tmargin: 0px 0px;\n\twidth: 100%;\n\theight: 100%;\n\tborder: none;\n\ttext-align: center;\n\tbackground: #FFFFDD;\n}\n\n.btn-touch-big {\n\tmargin: 0px 12px 0px 12px;\n\tbackground: none;\n\tcolor: #999999;\n\tborder: none;\n\tfont-size: 4em;\n\tline-height: 1em;\n}\n\n.btn-touch-big-down {\n\tmargin: 0px 12px 0px 12px;\n\tbackground: none;\n\tcolor: #333333;\n\tborder: none;\n\tfont-size: 4em;\n\tline-height: 1em;\n}\n\n.btn-touch-big:hover {\n\tcolor: <<couleur btn-courses-hover>>;\n}\n\n.btn-sidebar {\n\theight: 6em;\n\twidth: 6em;\n\tmargin: 0px -10px 0px 0px;\n\tbackground: none;\n\tcolor: <<color sidebar-controls-foreground>>;\n\tborder: none;\n\tfont-size: 1em;\n\tline-height: 1.2em;\n}\n\n.btn-sidebar-down {\n\theight: 6em;\n\twidth: 6em;\n\tmargin: 0px -10px 0px 0px;\n\tbackground: none;\n\tcolor: <<color sidebar-controls-foreground-hover>>;\n\tborder: none;\n\tfont-size: 1em;\n\tline-height: 1.4em;\n}\n\n.btn-sidebar:hover {\n\tcolor: <<color sidebar-controls-foreground-hover>>;\n}\n\n.btn-sidebar-down:hover {\n\tcolor: <<color sidebar-controls-foreground>>;\n}\n\n.btn-newHere-sidebar {\n\tbackground: none;\n\tcolor: #FFFFFF;\n\tborder: 1px solid white;\n\tfont-size: 1.2em;\n\tfont-weight:bold;\n\tline-height: 1.6em;\n}\n\n\n.btn-big {\n\tpadding: 8px;\n\tmargin: 0px 8px 4px 0px;\n\tcolor: <<colour download-foreground>>;\n\tfill: <<colour download-foreground>>;\n\tborder: none;\n\tfont-size: 1.2em;\n\tfont-weight: bold;\n\tline-height: 1.4em;\n}\n\n.btn-big.grey {\n\tbackground: grey;\n}\n\n.btn-big.green {\n\tbackground: <<colour download-background>>;\n}\n\n.btn-big.red {\n\tbackground: red;\n}\n\n.btn-inputSlider {\n\tpadding: 0;\n\tmargin: 0;\n\tbackground: none;\n\tborder: none;\n}\n\n.btn-inputSlider.tab {\n\tfloat: right;\n\tposition:relative;\n\ttop: 6px;\n}\n\n.btn-inputSlider.home {\n\tfloat: right;\n\tposition:relative;\n\ttop: 30px;\n}\n\n",
+            "modified": "20141231101108121",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Stylesheet BottomTabs",
+            "title": "$:/plugins/amp/BT/css/buttons"
+        },
+        "$:/plugins/amp/BT/macros/newNote": {
+            "created": "20141214125537756",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define newNote(type:\"note\",label:\"add\",class:\"\")\n<<newNoteForm type:\"$type$\">>\n<<newNoteButton type:\"$type$\" label:\"$label$\" class:\"$class$\">>\n\\end\n<<newNote>>",
+            "modified": "20141216100640572",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/newNote"
+        },
+        "$:/plugins/amp/BT/macros/newNote/button": {
+            "created": "20141125101553189",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define newNoteButton2(type, title, source, tags, label, class)\n<$button class=\"$class$\">\n    <$action-sendmessage $message=\"tm-new-tiddler\" $param=\"$:/temp/$type$\"\n        title={{$title$}}\n        tags=\"$:/type/$type$ $tags$\"\n        icon={{$:/type/$type$!!icon}}\n        color={{$:/type/$type$!!color}}\n        source=\"[[$source$]]\"\n        about={{$:/temp/$type$!!about}}\n        description={{$:/temp/$type$!!description}}\n        />\n    <$action-deletefield $tiddler=\"$:/temp/$type$\" tags text about description chapter page_alpha page_omega/>\n    <$action-deletefield $tiddler=\"$:/temp/title\" text/>\n    $label$\n</$button>\n\\end\n\n\\define newNoteButton(type:\"note\", title:\"$:/temp/title\", tags, label:\"add\", class:\"\")\n<$reveal state=\"$title$\" type=\"nomatch\" text=\"\">\n<$reveal state=\"$(currentTab)$\" type=\"nomatch\" text=\"\">\n\n    <$macrocall $name=\"newNoteButton2\"\n        type=\"$type$\"\n        title=\"$title$\"\n        tags=\"$tags$\"\n        source={{!!title}}\n        label=\"$label$\"\n        class=\"$class$\"\n        />\n\n</$reveal>\n\n<$reveal state=\"$(currentTab)$\" type=\"match\" text=\"\">\n\n    <$macrocall $name=\"newNoteButton2\"\n        type=\"$type$\"\n        title=\"$title$\"\n        tags=\"$tags$\"\n        label=\"$label$\"\n        class=\"$class$\"\n        />\n</$reveal>\n</$reveal>\n\\end\n\n<<newNoteButton>>",
+            "modified": "20141231104217984",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/newNote/button"
+        },
+        "tag": {
+            "text": "{{!!title||$:/core/ui/TagTemplate}}\n",
+            "created": "20141211231726173",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141211232032733",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/template",
+            "title": "tag"
+        },
+        "$:/plugins/amp/BT/new/comment": {
+            "created": "20141214231700231",
+            "creator": "Alberto Molina Pérez",
+            "text": "<<newNote \"comment\">>",
+            "title": "$:/plugins/amp/BT/new/comment",
+            "tags": "BottomTabs",
+            "modified": "20141214231824471",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/macros/newNote/Form": {
+            "text": "\\define newNoteFormTable(source,pagesChapter,title,description,about,tags,text)\n\n$source$\n$pagesChapter$\n$title$\n$description$\n$about$\n$tags$\n$text$\n\n\\end\n\n\\define newNoteForm(type:\"note\")\n<$set name=\"tempTiddler\" value=\"$:/temp/$type$\" >\n<$set name=\"Label\" value=\"Note\" >\n<$set name=\"label\" value=\"$type$\" >\n\n<$reveal state=\"$(currentTab)$\" type=\"nomatch\" text=\"\">\n\n<$macrocall $name=\"newNoteFormTable\" \n    source=<<inputSource>>\n    pagesChapter=<<inputPagesChapter>>\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n<$reveal state=\"$(currentTab)$\" type=\"match\" text=\"\">\n\n<$macrocall $name=\"newNoteFormTable\" \n    source=\"\"\n    pagesChapter=\"\"\n    title=<<inputTitle>>\n    description=<<inputDescription>>\n    about=<<inputAbout>>\n    tags=<<inputTags>>\n    text=<<inputText>>\n    />\n\n</$reveal>\n\n</$set>\n</$set>\n</$set>\n\\end\n<<newNoteForm>>",
+            "created": "20141125120058912",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141214231558985",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/newNote/Form"
+        },
+        "$:/plugins/amp/BT/forms/input/none": {
+            "created": "20141215132717966",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define inputNone()\n||<|<|<|<|<|<|<|\n\\end\n<<inputNone>>",
+            "modified": "20141215132751555",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/tags/Macro",
+            "title": "$:/plugins/amp/BT/forms/input/none"
+        },
+        "$:/plugins/amp/BT/home": {
+            "text": "<br>\n<$list filter=\"[all[shadows+tiddlers]tag[$:/tags/Home]]\">\n<$reveal type=\"nomatch\" state=\"$:/state/home\" text={{!!title}}>\n    <$button set=\"$:/state/home\" setTo={{!!title}} class=\"btn-touch-big\">\n        <$transclude tiddler={{!!icon}}/>\n    </$button>\n</$reveal>\n<$reveal type=\"match\" state=\"$:/state/home\" text={{!!title}}>\n    <$button class=\"btn-touch-big-down\">\n        <$transclude tiddler={{!!icon}}/>\n    </$button>\n</$reveal>\n</$list>\n\n<div style=\"border-top:solid 1px #ececec;\">\n<$transclude tiddler={{$:/state/home}}/>\n</div>\n\n",
+            "created": "20141215004626641",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/core/images/home-button",
+            "modified": "20141215004657517",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/plugins/amp/BT/home"
+        },
+        "$:/config/BottomTabs/caption/font-size/$:/plugins/amp/BT": {
+            "created": "20141228161847285",
+            "creator": "Alberto Molina Pérez",
+            "title": "$:/config/BottomTabs/caption/font-size/$:/plugins/amp/BT",
+            "text": "1.25em",
+            "modified": "20141228163224485",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/config/BottomTabs/caption-selected/font-size/$:/plugins/amp/BT": {
+            "created": "20141228161853049",
+            "creator": "Alberto Molina Pérez",
+            "title": "$:/config/BottomTabs/caption-selected/font-size/$:/plugins/amp/BT",
+            "text": "1.25em",
+            "modified": "20141229101154480",
+            "modifier": "Alberto Molina Pérez"
+        },
+        "$:/plugins/amp/BT/config/BottomTabs": {
+            "created": "20140720092609150",
+            "creator": "Alberto Molina Pérez",
+            "text": "!Default tabs\n\n<$checkbox tiddler=\"$:/plugins/amp/BT/tabs/info\" tag=\"$:/action/is/default\"> \n    <$link>\n        <$view tiddler=\"$:/plugins/amp/BT/tabs/info\" field=\"description\"/>\n    </$link>\n</$checkbox>   \n<$checkbox tiddler=\"$:/plugins/amp/BT/tabs/comments\" tag=\"$:/action/is/default\"> \n    <$link>\n        <$view tiddler=\"$:/plugins/amp/BT/tabs/comments\" field=\"description\"/>\n    </$link>\n</$checkbox>\n\n<div class=\"troiscolonnes\">\n<$list filter=\"[all[tiddlers+shadows]tag[$:/type/tab]] -[[$:/plugins/amp/BT/tabs/info]] -[[$:/plugins/amp/BT/tabs/comments]] +[sort[title]]\">\n    <$checkbox tag=\"$:/action/is/default\"> \n        <$link>\n            <$view field=\"description\"/>\n        </$link>\n    </$checkbox>\n<br>\n\n</$list>\n</div>\n\n!Position\n\n<$radio tiddler=\"$:/config/BottomTabs/position/$:/plugins/amp/BT\" field=\"text\" value=\"left\">Left</$radio>      \n<$radio tiddler=\"$:/config/BottomTabs/position/$:/plugins/amp/BT\" field=\"text\" value=\"right\">Right</$radio>\n\n! Colors\n\n<$tiddler tiddler=\"$:/config/BottomTabs/colors/$:/plugins/amp/BT\">\n\n|!Blue: |<$edit-text index=\"blue\" tag=\"input\"/>|<$edit-text index=\"blue\" type=\"color\" tag=\"input\"/>|\n|!Red: |<$edit-text index=\"red\" tag=\"input\"/>|<$edit-text index=\"red\" type=\"color\" tag=\"input\"/>|\n|!Yellow: |<$edit-text index=\"yellow\" tag=\"input\"/>|<$edit-text index=\"yellow\" type=\"color\" tag=\"input\"/>|\n\n</$tiddler>\n\n!Caption\n\nFont-size: <$edit-text tiddler=\"$:/config/BottomTabs/caption/font-size/$:/plugins/amp/BT\" default=\"1em\" tag=\"input\" size=\"6\"/>\n\nFont-size selected: <$edit-text tiddler=\"$:/config/BottomTabs/caption-selected/font-size/$:/plugins/amp/BT\" tag=\"input\" size=\"6\"/>\n\nFont-size counter: <$edit-text tiddler=\"$:/config/BottomTabs/caption-counter/font-size/$:/plugins/amp/BT\" tag=\"input\" size=\"6\"/>\n\nColor: <$edit-text tiddler=\"$:/config/BottomTabs/caption/color/$:/plugins/amp/BT\" tag=\"input\" default=\"\"/> <$edit-text tiddler=\"$:/config/BottomTabs/caption/color/$:/plugins/amp/BT\" tag=\"input\" type=\"color\"/>\n\nCounter: \n<$radio tiddler=\"$:/config/BottomTabs/caption/counter/$:/plugins/amp/BT\" field=\"text\" value=\"show\">Show</$radio>      \n<$radio tiddler=\"$:/config/BottomTabs/caption/counter/$:/plugins/amp/BT\" field=\"text\" value=\"hide\">Hide</$radio>",
+            "caption": "Tabs bar",
+            "modified": "20141229090348743",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs $:/type/config",
+            "title": "$:/plugins/amp/BT/config/BottomTabs",
+            "dependencies": "$:/plugins/amp/BT/tabs/info $:/plugins/amp/BT/tabs/comments $:/config/BottomTabs/position/$:/plugins/amp/BT $:/config/BottomTabs/colors/$:/plugins/amp/BT"
+        },
+        "$:/config/BottomTabs/caption/counter/$:/plugins/amp/BT": {
+            "text": "show",
+            "created": "20141229085818253",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141229090358936",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "BottomTabs",
+            "title": "$:/config/BottomTabs/caption/counter/$:/plugins/amp/BT"
+        },
+        "$:/config/BottomTabs/caption/color/$:/plugins/amp/BT": {
+            "text": "#C0C0C0",
+            "created": "20141228164936682",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141228172124900",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "",
+            "title": "$:/config/BottomTabs/caption/color/$:/plugins/amp/BT"
+        },
+        "$:/plugins/amp/BT/macros/caption": {
+            "created": "20141228095201442",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define BTcaption()\n<$transclude tiddler={{$(currentTab)$!!icon}}/> \n<$reveal state=\"$:/config/BottomTabs/caption/counter/$:/plugins/amp/BT\" type=\"match\" text=\"show\">\n<$reveal state=\"$(currentTab)$!!filter\" type=\"nomatch\" text=\"\">\n    <small><$count filter={{$(currentTab)$!!filter}}/></small>\n</$reveal>\n</$reveal>\n\\end\n\n<<BTcaption>>",
+            "modified": "20141229102101183",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/caption"
+        },
+        "$:/plugins/amp/BT/macros/tabContents": {
+            "created": "20141229111341779",
+            "creator": "Alberto Molina Pérez",
+            "text": "\\define tabContents()\n<h1><$transclude tiddler={{$(currentTab)$!!icon}}/> <$view tiddler=\"$(currentTab)$\" field=\"description\"/></h1>\n\n<$list filter={{$(currentTab)$!!filter}} template={{$(currentTab)$!!template}}  emptyMessage=\"none\"/>\n\n<h1><$transclude tiddler={{$(currentTab)$!!icon}}/> Related</h1>\n\n<$list filter={{$(currentTab)$!!filter_related}} template={{$(currentTab)$!!template}} emptyMessage=\"none\"/>\n\\end",
+            "modified": "20141229190148458",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/tags/Macro",
+            "title": "$:/plugins/amp/BT/macros/tabContents"
+        },
+        "$:/plugins/amp/BT/templates/tabs/comments": {
+            "text": "<h2><$link to={{!!title}}><$view field=\"title\"/></$link></h2>\n<h3><$transclude field=\"description\"/></h3>\n<$list filter=\"[all[current]list[!!about]] [all[current]list[!!parent]] [all[current]list[!!source]] -[title<storyTiddler>]\" template=\"$:/core/ui/TagTemplate\"/><$list filter=\"[all[current]tags[]!is[system]]\" template=\"$:/core/ui/TagTemplate\"/>\n\n<blockquote>\n\n<$transclude field=\"text\" mode=\"block\"/>\n\n</blockquote>\n\n<br>",
+            "created": "20141229104951332",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141229114459996",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/template BottomTabs",
+            "title": "$:/plugins/amp/BT/templates/tabs/comments"
+        },
+        "$:/plugins/amp/BT/templates/tabs/info": {
+            "text": "<$link><$transclude tiddler={{!!icon}}/> <$view field=\"title\"/></$link><br>",
+            "created": "20141229201354721",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141229202525025",
+            "modifier": "Alberto Molina Pérez",
+            "tags": "$:/type/template BottomTabs",
+            "title": "$:/plugins/amp/BT/templates/tabs/info"
+        },
+        "$:/type/person": {
+            "text": "",
+            "caption": "Person",
+            "color": "#ff8383",
+            "created": "20141230120636464",
+            "creator": "Alberto Molina Pérez",
+            "icon": "$:/plugins/amp/BT/images/person",
+            "modified": "20141231100028928",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/type/person"
+        },
+        "$:/type/biography": {
+            "text": "",
+            "caption": "Biography",
+            "created": "20141231095454340",
+            "creator": "Alberto Molina Pérez",
+            "modified": "20141231095456586",
+            "modifier": "Alberto Molina Pérez",
+            "title": "$:/type/biography"
+        }
+    }
+}
