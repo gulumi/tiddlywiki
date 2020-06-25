@@ -1,0 +1,62 @@
+dependents: 
+description: Rapid Tiddler
+list: readme usage
+name: RapidTiddler
+plugin-type: plugin
+title: $:/plugins/menedev/rapidtiddler
+type: application/json
+version: 5.1.23-prerelease
+
+{
+    "tiddlers": {
+        "$:/plugins/menedev/rapidtiddler/action/todo": {
+            "title": "$:/plugins/menedev/rapidtiddler/action/todo",
+            "created": "20200622131951168",
+            "modified": "20200622132947308",
+            "status": "todo",
+            "text": "<$checkbox field=\"status\" checked=\"done\" unchecked=\"todo\" default=\"todo\" />"
+        },
+        "$:/plugins/menedev/rapidtiddler/widget/link": {
+            "title": "$:/plugins/menedev/rapidtiddler/widget/link",
+            "created": "20200622131951168",
+            "modified": "20200622132947308",
+            "status": "todo",
+            "text": "{{$:/core/images/link}}"
+        },
+        "$:/plugins/menedev/rapidtiddler/files/rapidtiddlerParser.js": {
+            "text": "",
+            "type": "application/javascript",
+            "title": "$:/plugins/menedev/rapidtiddler/files/rapidtiddlerParser.js",
+            "module-type": "library"
+        },
+        "$:/plugins/menedev/rapidtiddler/files/rapidtiddler-inline.css": {
+            "text": ".rapidtiddler-inline-editor {\n    width: 100%;\n    display: inline-block;\n}\n\n.rapidtiddler-inline-editor > * {\n    width: 100%;\n    display: inline-block;\n}\n\n.rapidtiddler-inline-editor > * > * {\n    width: 100%;\n    display: inline-block;\n}\n\n.rapidtiddler-inline-editor ~ :not(.tc-tiddler-title) {\n    visibility: collapse;\n    display: none;\n    height: 0;\n}\n\n.rapidtiddler-inline-editor ~ .tc-tiddler-title > .tc-titlebar > :not(.tc-tiddler-controls) {\n    visibility: collapse;\n    display: none;\n    height: 0;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/menedev/rapidtiddler/files/rapidtiddler-inline.css",
+            "tags": "[[$:/tags/Stylesheet]]"
+        },
+        "$:/tags/ViewTemplate": {
+            "title": "$:/tags/ViewTemplate",
+            "list": "$:/core/ui/ViewTemplate/title $:/plugins/menedev/rapidtiddler/rapidtiddler-editor"
+        },
+        "$:/plugins/menedev/rapidtiddler/rapidtiddler-editor": {
+            "title": "$:/plugins/menedev/rapidtiddler/rapidtiddler-editor",
+            "tags": "$:/tags/ViewTemplate",
+            "text": "<$list filter=\"[is[current]field:type[text/x-rapidtiddler]]\">\n@@.rapidtiddler-inline-editor\n<$edit-codemirror type=\"text/x-rapidtiddler\" lineNumbers=\"false\" tiddler=<<currentTiddler>> />\n@@\n</$list>"
+        },
+        "$:/plugins/menedev/rapidtiddler/readme": {
+            "title": "$:/plugins/menedev/rapidtiddler/readme",
+            "text": "This is RapidTiddler\n"
+        },
+        "$:/plugins/menedev/rapidtiddler/usage": {
+            "title": "$:/plugins/menedev/rapidtiddler/usage",
+            "text": "RapidTiddler usage\n"
+        },
+        "$:/plugins/menedev/rapidtiddler/rapidtiddler.js": {
+            "title": "$:/plugins/menedev/rapidtiddler/rapidtiddler.js",
+            "text": "/*\\\ntitle: $:/plugins/menedev/rapidtiddler/rapidtiddler.js\ntype: application/javascript\nmodule-type: parser\n\nWraps up the rapidtiddler parser for use as a Parser in TiddlyWiki\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\nvar r = require(\"$:/plugins/menedev/rapidtiddler/files/rapidtiddlerParser.js\");\n\nvar RapdiTiddlerParser = function(type, text, options) {\n\tvar element = {\n\t\ttype: \"element\",\n\t\ttag: \"audio\",\n\t\tattributes: {\n\t\t\tcontrols: {type: \"string\", value: \"controls\"},\n\t\t\tstyle: {type: \"string\", value: \"width: 100%; object-fit: contain\"}\n\t\t}\n\t};\n\tvar link = {\n\t\ttype: \"link\",\n\t\tattributes: {\n\t\t\tto: {type: \"string\", value: \"toValue\"}\n\t\t},\n\t\tchildren: [{\n\t\t\ttype: \"text\", text: \"linkText\"\n\t\t}]\n\t};\n\n\tthis.tree = [element, link];\n};\n\nexports[\"text/x-rapidtiddler\"] = RapdiTiddlerParser;\n})();\n",
+            "type": "application/javascript",
+            "module-type": "parser"
+        }
+    }
+}
