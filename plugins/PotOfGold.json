@@ -1,0 +1,12 @@
+[
+    {
+        "text": "<div style=\"display: flex; align-items: center; height: 55px; width:175px;\"><svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"  height=\"55\" width=\"75\">\n    <linearGradient id=\"coin\" x2=\"50%\" y2=\"40%\" spreadMethod=\"reflect\">\n        <stop stop-color=\"gold\" offset=\"30%\" />\n        <stop stop-color=\"goldenrod\" offset=\"70%\" />\n        <stop stop-color=\"white\" offset=\"82%\" />\n        <stop stop-color=\"gold\" offset=\"92%\" />\n        <stop stop-color=\"darkgoldenrod\" offset=\"100%\" />\n    </linearGradient>\n    <radialGradient id=\"pot\" fx=\"30%\" fy=\"35%\">\n        <stop stop-color=\"white\" offset=\"0%\" />\n        <stop stop-color=\"gold\" offset=\"15%\" />\n        <stop stop-color=\"goldenrod\" offset=\"80%\" />\n        <stop stop-color=\"darkgoldenrod\" offset=\"100%\" />\n    </radialGradient>\n    <!--symbol id=\"potofgold\" -->\n        <g fill=\"url(#coin)\" stroke=\"darkgoldenrod\" stroke-width=\"0.5\">\n            <circle r=\"5\" transform=\"translate(30,7)\" />\n            <circle r=\"5\" transform=\"translate(35,13)\" />\n            <circle r=\"5\" transform=\"translate(22,10)\" />\n            <circle r=\"5\" transform=\"translate(27,9)\" />\n            <circle r=\"5\" transform=\"translate(18,17)\" />\n            <circle r=\"5\" transform=\"translate(42,18)\" />\n            <circle r=\"5\" transform=\"translate(32,19)\" />\n            <circle r=\"5\" transform=\"translate(30,14)\" />\n            <circle r=\"5\" transform=\"translate(25,15)\" />\n            <circle r=\"5\" transform=\"translate(37,19)\" />\n            <circle r=\"5\" transform=\"translate(31,16)\" />\n            <circle r=\"5\" transform=\"translate(20,18)\" />\n            <circle r=\"5\" transform=\"translate(26,21)\" />\n        </g>\n        <path fill=\"url(#pot)\" stroke=\"#751\" stroke-width=\"0.5\"\n              d=\"M30,50 C45,50 55,45 55,35  \n                 Q 55,27 50,25 C55,22 53,15 45,20\n                 S 23,25 15,20 S5,22 10,25\n                 Q 5,27 5,35 C5,45 15,50 30,50Z\"\n          />\n</svg><$link>{{!!title}}</$link></div>",
+        "type": "text/vnd.tiddlywiki",
+        "title": "PotOfGold",
+        "tags": "",
+        "modified": "20151117205844237",
+        "created": "20151117031704784",
+        "_tgr_node_filter": "[[Chastity]]",
+        "_tgr_node_class_add": "my-gold-node"
+    }
+]

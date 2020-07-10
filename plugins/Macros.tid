@@ -1,0 +1,65 @@
+created: 20180412215552011
+modified: 20180412220011114
+tags: $:/tags/Macro
+title: Macros
+
+\define showSelectedCards(subfilter)
+<!-- Creates a linked list to quiz on -->
+<$action-setfield $tiddler="Results" $field="home" $value={{$:/StoryList!!list}} />
+<$action-sendmessage $message="tm-close-all-tiddlers"/>
+<!-- for the n many cards, we return n-1 -->
+<$formula-vars counter="count([$subfilter$])-1">
+    <!-- iter goes from 0 to n-2  -->
+    <$list filter="[range<counter>butlast[]]" variable="iter">
+        <!-- arrays need to be accessed from 1 to n -->        
+        <$formula-vars current="nth([$subfilter$sort[due]], <<iter>> + 1)" next="nth([$subfilter$sort[due]], <<iter>> + 2)">
+            <$action-setfield $tiddler=<<current>> $field="next" $value=<<next>>/>
+            <!--<Current: <<current>>, Next: <<next>> <br/> -->
+        </$formula-vars>
+    </$list>
+    <!-- take last element with no forward link -->
+    <$list filter="[range<counter>last[]]" variable="iter">
+        <$formula-vars current="nth([$subfilter$sort[due]], <<iter>> + 1)">
+            <$action-setfield $tiddler=<<current>> next="Results"/>
+        </$formula-vars>
+    </$list>
+</$formula-vars>
+<$list filter="[$subfilter$sort[due]first[]]">
+<$action-navigate $to=<<currentTiddler>>/>
+</$list>
+\end
+
+\define againQuality() 0
+\define hardQuality() 2
+\define goodQuality() 4
+\define easyQuality() 5
+\define updateEasynessFactor()
+    IF(gt(<<quality>>,<<againQuality>>), clamp({{!!ef}}-0.8+0.28*<<quality>>-0.02*<<quality>>*<<quality>>,1.3,2.5), {{!!ef}})
+\end
+\define updateRepetitionCount()
+    IF(gt(<<quality>>,<<againQuality>>),{{!!repetition}} + 1, 1)
+\end
+\define updateDueDate()
+    to_tw_date(add_days(now(),<<repetition>>))
+\end
+\define updateActions()
+<!-- UPDATE question parameters -->
+<$formula-vars ef=<<updateEasynessFactor>>>
+    <$action-setfield $field="ef" $value=<<ef>>/>
+    <$formula-vars repetition=<<updateRepetitionCount>>>
+        <$action-setfield $field="repetition" $value=<<repetition>>/>
+        <$formula-vars due=<<updateDueDate>>>
+            <$action-setfield $field="due" $value=<<due>>/>
+        </$formula-vars>
+    </$formula-vars>
+</$formula-vars>
+
+<!-- REMOVE Answer Button Row -->
+<$action-sendmessage $message="tm-remove-field" $param="state"/>
+
+<!-- CLOSE this question -->
+<$action-sendmessage $message="tm-close-tiddler"/>
+
+<!-- OPEN the next Tiddler -->
+<$action-navigate $to={{!!next}}/>
+\end
