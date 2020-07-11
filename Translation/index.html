@@ -909,7 +909,7 @@ Error message and password prompt
 
 <li>Demo Card</li>
 
-<li>Draft of 'Demo Card'</li>
+<li>Draft of 'Fold Macro'</li>
 
 <li>Fold Macro</li>
 
@@ -14971,7 +14971,7 @@ html body.tc-body {
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20200709034911615" list="[[New Tiddler]] [[Fold Macro]] Macro_Create_Card Macros [[Draft of 'Demo Card']] $:/core/ui/ViewTemplate [[Button to show/hide text]] $:/vivian/card/stylesheet $:/ak/drift/stylesheet $:/AdvancedSearch [[Card Demo QA]] $:/Import" modified="20200709061200515" title="$:/StoryList">
+<div created="20200709034911615" list="[[Card Template]] [[New Tiddler]] [[Draft of 'Fold Macro']] Macro_Create_Card Macros [[Demo Card]] $:/core/ui/ViewTemplate [[Button to show/hide text]] $:/vivian/card/stylesheet $:/ak/drift/stylesheet $:/AdvancedSearch [[Card Demo QA]] $:/Import" modified="20200711043149325" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -17445,7 +17445,7 @@ Daaay-ooo!
 <div created="20200709035203405" modified="20200709035801870" state="" tags="[[Flash Card]]" title="Card Demo QA">
 <pre></pre>
 </div>
-<div created="20180202023229809" modified="20200709035304997" revision="0" tags="$:/tags/ViewTemplate" title="Card Template" type="text/vnd.tiddlywiki">
+<div created="20180202023229809" modified="20200711043206232" revision="0" tags="$:/tags/ViewTemplate" title="Card Template" type="text/vnd.tiddlywiki">
 <pre>&lt;!-- ACTIVATE this template for all tiddlers tagged Flash Cards --&gt;
 &lt;$list filter=&quot;[all[current]tag[Flash Card]]&quot;&gt;
     &lt;$fieldmangler&gt;
@@ -17580,7 +17580,7 @@ Reset
 This tiddler corresponds to a Deck of cards, and should be styled as such! Perhaps with a button to launch it, etc.
 &lt;/$list&gt;</pre>
 </div>
-<div created="20200709035550107" modified="20200709060941254" tags="Card DeckTitle" title="Demo Card">
+<div created="20200709035550107" modified="20200711042942248" tags="Card DeckTitle" title="Demo Card">
 <pre>&lt;div class=&quot;paper&quot;&gt;
 Test Card
 &lt;br&gt;
@@ -17592,17 +17592,21 @@ B
 
 </pre>
 </div>
-<div created="20200709035550107" draft.of="Demo Card" draft.title="Demo Card" modified="20200709061032850" tags="Card DeckTitle" title="Draft of 'Demo Card'">
-<pre>&lt;div class=&quot;paper&quot;&gt;
-Test Card
-&lt;br&gt;
-A
-&lt;br&gt;
-B
+<div created="20200709000253892" draft.of="Fold Macro" draft.title="Fold Macro" modified="20200711043210666" tags="$:/tags/Macro" title="Draft of 'Fold Macro'">
+<pre>\define fold(heading, text)
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/state/section$heading$&quot;&gt;&gt; text=&quot;&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify 
+&quot;$:/state/section$heading$&quot;&gt;&gt;&gt;
 
-&lt;/div&gt;
+$heading$ {{$:/core/images/chevron-right}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;qualify &quot;$:/state/section$heading$&quot;&gt;&gt; 
+text=&quot;&quot;&gt;
 
-</pre>
+$heading$ {{$:/core/images/chevron-down}}
+$text$
+&lt;/$reveal&gt;
+\end </pre>
 </div>
 <div created="20200709000253892" modified="20200709000500350" tags="$:/tags/Macro" title="Fold Macro">
 <pre>\define fold(heading, text)
@@ -17626,10 +17630,10 @@ $text$
 <div _tgr_node_class_add="my-gold-node" _tgr_node_filter="[![Others]]" _tgr_node_level="2 3" created="20151116230444607" modified="20151117223517549" tags="" title="GoldTemplate" type="text/vnd.tiddlywiki">
 <pre>&lt;$link&gt;{{!!title}}&lt;/$link&gt;</pre>
 </div>
-<div created="20200709061121266" modified="20200709061339489" tags="$:/tags/Macro" title="Macro_Create_Card">
+<div created="20200709061121266" modified="20200711043240000" tags="$:/tags/Macro" title="Macro_Create_Card">
 <pre>\define newCard( text)
-&lt;div class=&quot;paper&quot;&gt;
-$text
+&lt;div class=&quot;paper&quot; text=$text$&gt;
+$text$
 &lt;br&gt;
 
 &lt;/div&gt;
@@ -17699,8 +17703,18 @@ $text
 &lt;$action-navigate $to={{!!next}}/&gt;
 \end</pre>
 </div>
-<div created="20200709061347569" modified="20200709061415189" tags="" title="New Tiddler">
-<pre>&lt;&lt;newCard hi&gt;&gt;</pre>
+<div created="20200709061347569" modified="20200711043351996" tags="" title="New Tiddler">
+<pre>&lt;&lt;newCard  
+hi, this
+this
+is
+
+
+
+
+
+&gt;&gt;
+</pre>
 </div>
 <div created="20200708013736295" modified="20200708142143163" tags="译海一粟 TOC" title="RoadMap - 经验">
 <pre>&lt;!--&lt;$tidgraph start=&quot;经验&quot; mode=&quot;listed[parent]&quot; nodetitle=&quot;text&quot; layout=&quot;S&quot;/&gt;--&gt;
